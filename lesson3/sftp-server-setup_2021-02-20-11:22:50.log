@@ -1,0 +1,57 @@
+New password: 
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password: 
+Changing password for user testuser.
+passwd: all authentication tokens updated successfully.
+testuser ALL=(ALL) NOPASSWD:ALL
+CentOS Linux 8 - AppStream                      134  B/s | 4.3 kB     00:33    
+CentOS Linux 8 - BaseOS                         5.2 kB/s | 3.9 kB     00:00    
+CentOS Linux 8 - Extras                         3.4 kB/s | 1.5 kB     00:00    
+Dependencies resolved.
+Nothing to do.
+Complete!
+Last metadata expiration check: 0:00:01 ago on Sat 20 Feb 2021 11:23:36 AM EET.
+Dependencies resolved.
+================================================================================
+ Package         Architecture    Version               Repository          Size
+================================================================================
+Installing:
+ vsftpd          x86_64          3.0.3-32.el8          appstream          180 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 180 k
+Installed size: 343 k
+Downloading Packages:
+[MIRROR] vsftpd-3.0.3-32.el8.x86_64.rpm: Curl error (28): Timeout was reached for http://mirrors.bytes.ua/centos/8.3.2011/AppStream/x86_64/os/Packages/vsftpd-3.0.3-32.el8.x86_64.rpm [Operation too slow. Less than 1000 bytes/sec transferred the last 30 seconds]
+vsftpd-3.0.3-32.el8.x86_64.rpm                  5.7 kB/s | 180 kB     00:31    
+--------------------------------------------------------------------------------
+Total                                           5.7 kB/s | 180 kB     00:31     
+Running transaction check
+Transaction check succeeded.
+Running transaction test
+Transaction test succeeded.
+Running transaction
+  Preparing        :                                                        1/1 
+  Installing       : vsftpd-3.0.3-32.el8.x86_64                             1/1 
+  Running scriptlet: vsftpd-3.0.3-32.el8.x86_64                             1/1 
+  Verifying        : vsftpd-3.0.3-32.el8.x86_64                             1/1 
+
+Installed:
+  vsftpd-3.0.3-32.el8.x86_64                                                    
+
+Complete!
+Created symlink /etc/systemd/system/multi-user.target.wants/vsftpd.service → /usr/lib/systemd/system/vsftpd.service.
+chroot_local_user=YES
+allow_writeable_chroot=YES
+userlist_file=/etc/vsftpd/user_list
+userlist_deny=NO
+chroot_list_enable=YES
+chroot_list_file=/etc/vsftpd/chroot_list
+pasv_enable=YES
+pasv_max_port=10001
+pasv_min_port=10000
+testuser
+testuser
