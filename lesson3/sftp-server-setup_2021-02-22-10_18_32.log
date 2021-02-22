@@ -1,0 +1,108 @@
+Logging setup to /tmp/sftp-server-setup_2021-02-22-10:18:32.log
+New password: 
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password: 
+Changing password for user user00.
+passwd: all authentication tokens updated successfully.
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirrors.bytes.ua
+ * epel: mirror.yandex.ru
+ * extras: mirrors.bytes.ua
+ * updates: mirrors.bytes.ua
+No packages marked for update
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirrors.bytes.ua
+ * epel: mirrors.colocall.net
+ * extras: mirrors.bytes.ua
+ * updates: mirrors.bytes.ua
+Resolving Dependencies
+There are unfinished transactions remaining. You might consider running yum-complete-transaction, or "yum-complete-transaction --cleanup-only" and "yum history redo last", first to finish them. If those don't work you'll have to try removing/installing packages by hand (maybe package-cleanup can help).
+The program yum-complete-transaction is found in the yum-utils package.
+--> Running transaction check
+---> Package vsftpd.x86_64 0:3.0.2-28.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package          Arch             Version                 Repository      Size
+================================================================================
+Installing:
+ vsftpd           x86_64           3.0.2-28.el7            base           172 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 172 k
+Installed size: 353 k
+Downloading packages:
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : vsftpd-3.0.2-28.el7.x86_64                                   1/1 
+  Verifying  : vsftpd-3.0.2-28.el7.x86_64                                   1/1 
+
+Installed:
+  vsftpd.x86_64 0:3.0.2-28.el7                                                  
+
+Complete!
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirrors.bytes.ua
+ * epel: mirrors.colocall.net
+ * extras: mirrors.bytes.ua
+ * updates: mirrors.bytes.ua
+Resolving Dependencies
+There are unfinished transactions remaining. You might consider running yum-complete-transaction, or "yum-complete-transaction --cleanup-only" and "yum history redo last", first to finish them. If those don't work you'll have to try removing/installing packages by hand (maybe package-cleanup can help).
+The program yum-complete-transaction is found in the yum-utils package.
+--> Running transaction check
+---> Package ftp.x86_64 0:0.17-67.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package        Arch              Version                 Repository       Size
+================================================================================
+Installing:
+ ftp            x86_64            0.17-67.el7             base             61 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 61 k
+Installed size: 96 k
+Downloading packages:
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : ftp-0.17-67.el7.x86_64                                       1/1 
+  Verifying  : ftp-0.17-67.el7.x86_64                                       1/1 
+
+Installed:
+  ftp.x86_64 0:0.17-67.el7                                                      
+
+Complete!
+Created symlink from /etc/systemd/system/multi-user.target.wants/vsftpd.service to /usr/lib/systemd/system/vsftpd.service.
+Warning: ALREADY_ENABLED: 21:tcp
+success
+Warning: ALREADY_ENABLED: ftp
+success
+Warning: ALREADY_ENABLED: 10000-10001:tcp
+success
+success
+user00
+user00
+New password: 
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password: 
+Changing password for user testing.
+passwd: all authentication tokens updated successfully.
+testing
+=============ftp===============
