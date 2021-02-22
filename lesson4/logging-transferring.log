@@ -1,0 +1,215 @@
+===========================================
+             FILE TRANSFERRING             
+===========================================
+*   Enter 'u' to UPLOAD files on server
+*   Enter 'd' to DOWNLOAD files from server
+===========================================
+*   Enter your option: ===========================================
+ 
+Executing: program /usr/bin/ssh host 127.0.0.1, user ftpuser, command scp -v -d -t /home/ftpuser/ftp/upload
+OpenSSH_8.2p1 Ubuntu-4ubuntu0.1, OpenSSL 1.1.1f  31 Mar 2020
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug1: Connecting to 127.0.0.1 [127.0.0.1] port 2222.
+debug1: Connection established.
+debug1: identity file /home/mpoli/.ssh/id_rsa type 0
+debug1: identity file /home/mpoli/.ssh/id_rsa-cert type -1
+debug1: identity file /home/mpoli/.ssh/id_dsa type -1
+debug1: identity file /home/mpoli/.ssh/id_dsa-cert type -1
+debug1: identity file /home/mpoli/.ssh/id_ecdsa type -1
+debug1: identity file /home/mpoli/.ssh/id_ecdsa-cert type -1
+debug1: identity file /home/mpoli/.ssh/id_ecdsa_sk type -1
+debug1: identity file /home/mpoli/.ssh/id_ecdsa_sk-cert type -1
+debug1: identity file /home/mpoli/.ssh/id_ed25519 type -1
+debug1: identity file /home/mpoli/.ssh/id_ed25519-cert type -1
+debug1: identity file /home/mpoli/.ssh/id_ed25519_sk type -1
+debug1: identity file /home/mpoli/.ssh/id_ed25519_sk-cert type -1
+debug1: identity file /home/mpoli/.ssh/id_xmss type -1
+debug1: identity file /home/mpoli/.ssh/id_xmss-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.1
+debug1: Remote protocol version 2.0, remote software version OpenSSH_7.4
+debug1: match: OpenSSH_7.4 pat OpenSSH_7.0*,OpenSSH_7.1*,OpenSSH_7.2*,OpenSSH_7.3*,OpenSSH_7.4*,OpenSSH_7.5*,OpenSSH_7.6*,OpenSSH_7.7* compat 0x04000002
+debug1: Authenticating to 127.0.0.1:2222 as 'ftpuser'
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: algorithm: curve25519-sha256
+debug1: kex: host key algorithm: ecdsa-sha2-nistp256
+debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: Server host key: ecdsa-sha2-nistp256 SHA256:QsLbheUFEUysZUcX8Y4qgyHJiQ5sF0enQklmcJT3q78
+debug1: Host '[127.0.0.1]:2222' is known and matches the ECDSA host key.
+debug1: Found key in /home/mpoli/.ssh/known_hosts:2
+debug1: rekey out after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug1: SSH2_MSG_NEWKEYS received
+debug1: rekey in after 134217728 blocks
+debug1: Will attempt key: /home/mpoli/.ssh/id_rsa RSA SHA256:2w0TXZxYz1a+ST6FhtgI3p6uadWZAEz2ilI6P5ga2ls agent
+debug1: Will attempt key: /home/mpoli/.ssh/id_dsa 
+debug1: Will attempt key: /home/mpoli/.ssh/id_ecdsa 
+debug1: Will attempt key: /home/mpoli/.ssh/id_ecdsa_sk 
+debug1: Will attempt key: /home/mpoli/.ssh/id_ed25519 
+debug1: Will attempt key: /home/mpoli/.ssh/id_ed25519_sk 
+debug1: Will attempt key: /home/mpoli/.ssh/id_xmss 
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_input_ext_info: server-sig-algs=<rsa-sha2-256,rsa-sha2-512>
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic,password
+debug1: Next authentication method: gssapi-with-mic
+debug1: Unspecified GSS failure.  Minor code may provide more information
+No Kerberos credentials available (default cache: FILE:/tmp/krb5cc_1001)
+
+
+debug1: Unspecified GSS failure.  Minor code may provide more information
+No Kerberos credentials available (default cache: FILE:/tmp/krb5cc_1001)
+
+
+debug1: Next authentication method: publickey
+debug1: Offering public key: /home/mpoli/.ssh/id_rsa RSA SHA256:2w0TXZxYz1a+ST6FhtgI3p6uadWZAEz2ilI6P5ga2ls agent
+debug1: Server accepts key: /home/mpoli/.ssh/id_rsa RSA SHA256:2w0TXZxYz1a+ST6FhtgI3p6uadWZAEz2ilI6P5ga2ls agent
+debug1: Authentication succeeded (publickey).
+Authenticated to 127.0.0.1 ([127.0.0.1]:2222).
+debug1: channel 0: new [client-session]
+debug1: Requesting no-more-sessions@openssh.com
+debug1: Entering interactive session.
+debug1: pledge: network
+debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
+debug1: Sending environment.
+debug1: Sending env LC_ADDRESS = en_US.UTF-8
+debug1: Sending env LC_NAME = en_US.UTF-8
+debug1: Sending env LC_MONETARY = en_US.UTF-8
+debug1: Sending env LANG = en_US.UTF-8
+debug1: Sending env LC_PAPER = en_US.UTF-8
+debug1: Sending env LC_IDENTIFICATION = en_US.UTF-8
+debug1: Sending env LC_TELEPHONE = en_US.UTF-8
+debug1: Sending env LC_MEASUREMENT = en_US.UTF-8
+debug1: Sending env LC_TIME = en_US.UTF-8
+debug1: Sending env LC_NUMERIC = en_US.UTF-8
+debug1: Sending command: scp -v -d -t /home/ftpuser/ftp/upload
+Sending file modes: C0664 1312372 daptyja-ae0b3d4d-1c40-47f6-951f-45746bd878d1.png
+Sink: C0664 1312372 daptyja-ae0b3d4d-1c40-47f6-951f-45746bd878d1.png
+Sending file modes: C0664 1636185 daq53vf-955123ff-28d9-4620-9967-cfb78c6222a9.png
+Sink: C0664 1636185 daq53vf-955123ff-28d9-4620-9967-cfb78c6222a9.png
+Sending file modes: C0664 2595007 Screenshot from 2021-01-22 03-12-10.png
+Sink: C0664 2595007 Screenshot from 2021-01-22 03-12-10.png
+Sending file modes: C0664 1693138 Screenshot from 2021-02-16 21-14-22.png
+Sink: C0664 1693138 Screenshot from 2021-02-16 21-14-22.png
+Sending file modes: C0664 794897 Screenshot from 2021-02-22 02-08-13.png
+Sink: C0664 794897 Screenshot from 2021-02-22 02-08-13.png
+debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+debug1: channel 0: free: client-session, nchannels 1
+debug1: fd 0 clearing O_NONBLOCK
+debug1: fd 2 clearing O_NONBLOCK
+Transferred: sent 8045288, received 5756 bytes, in 0.3 seconds
+Bytes per second: sent 25531724.8, received 18266.7
+debug1: Exit status 0
+===========================================
+             FILE TRANSFERRING             
+===========================================
+*   Enter 'u' to UPLOAD files on server
+*   Enter 'd' to DOWNLOAD files from server
+===========================================
+*   Enter your option: ===========================================
+ 
+Executing: program /usr/bin/ssh host 127.0.0.1, user ftpuser, command scp -v -f /home/ftpuser/ftp/upload/*
+OpenSSH_8.2p1 Ubuntu-4ubuntu0.1, OpenSSL 1.1.1f  31 Mar 2020
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug1: Connecting to 127.0.0.1 [127.0.0.1] port 2222.
+debug1: Connection established.
+debug1: identity file /home/mpoli/.ssh/id_rsa type 0
+debug1: identity file /home/mpoli/.ssh/id_rsa-cert type -1
+debug1: identity file /home/mpoli/.ssh/id_dsa type -1
+debug1: identity file /home/mpoli/.ssh/id_dsa-cert type -1
+debug1: identity file /home/mpoli/.ssh/id_ecdsa type -1
+debug1: identity file /home/mpoli/.ssh/id_ecdsa-cert type -1
+debug1: identity file /home/mpoli/.ssh/id_ecdsa_sk type -1
+debug1: identity file /home/mpoli/.ssh/id_ecdsa_sk-cert type -1
+debug1: identity file /home/mpoli/.ssh/id_ed25519 type -1
+debug1: identity file /home/mpoli/.ssh/id_ed25519-cert type -1
+debug1: identity file /home/mpoli/.ssh/id_ed25519_sk type -1
+debug1: identity file /home/mpoli/.ssh/id_ed25519_sk-cert type -1
+debug1: identity file /home/mpoli/.ssh/id_xmss type -1
+debug1: identity file /home/mpoli/.ssh/id_xmss-cert type -1
+debug1: Local version string SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.1
+debug1: Remote protocol version 2.0, remote software version OpenSSH_7.4
+debug1: match: OpenSSH_7.4 pat OpenSSH_7.0*,OpenSSH_7.1*,OpenSSH_7.2*,OpenSSH_7.3*,OpenSSH_7.4*,OpenSSH_7.5*,OpenSSH_7.6*,OpenSSH_7.7* compat 0x04000002
+debug1: Authenticating to 127.0.0.1:2222 as 'ftpuser'
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: algorithm: curve25519-sha256
+debug1: kex: host key algorithm: ecdsa-sha2-nistp256
+debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: Server host key: ecdsa-sha2-nistp256 SHA256:QsLbheUFEUysZUcX8Y4qgyHJiQ5sF0enQklmcJT3q78
+debug1: Host '[127.0.0.1]:2222' is known and matches the ECDSA host key.
+debug1: Found key in /home/mpoli/.ssh/known_hosts:2
+debug1: rekey out after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug1: SSH2_MSG_NEWKEYS received
+debug1: rekey in after 134217728 blocks
+debug1: Will attempt key: /home/mpoli/.ssh/id_rsa RSA SHA256:2w0TXZxYz1a+ST6FhtgI3p6uadWZAEz2ilI6P5ga2ls agent
+debug1: Will attempt key: /home/mpoli/.ssh/id_dsa 
+debug1: Will attempt key: /home/mpoli/.ssh/id_ecdsa 
+debug1: Will attempt key: /home/mpoli/.ssh/id_ecdsa_sk 
+debug1: Will attempt key: /home/mpoli/.ssh/id_ed25519 
+debug1: Will attempt key: /home/mpoli/.ssh/id_ed25519_sk 
+debug1: Will attempt key: /home/mpoli/.ssh/id_xmss 
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_input_ext_info: server-sig-algs=<rsa-sha2-256,rsa-sha2-512>
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic,password
+debug1: Next authentication method: gssapi-with-mic
+debug1: Unspecified GSS failure.  Minor code may provide more information
+No Kerberos credentials available (default cache: FILE:/tmp/krb5cc_1001)
+
+
+debug1: Unspecified GSS failure.  Minor code may provide more information
+No Kerberos credentials available (default cache: FILE:/tmp/krb5cc_1001)
+
+
+debug1: Next authentication method: publickey
+debug1: Offering public key: /home/mpoli/.ssh/id_rsa RSA SHA256:2w0TXZxYz1a+ST6FhtgI3p6uadWZAEz2ilI6P5ga2ls agent
+debug1: Server accepts key: /home/mpoli/.ssh/id_rsa RSA SHA256:2w0TXZxYz1a+ST6FhtgI3p6uadWZAEz2ilI6P5ga2ls agent
+debug1: Authentication succeeded (publickey).
+Authenticated to 127.0.0.1 ([127.0.0.1]:2222).
+debug1: channel 0: new [client-session]
+debug1: Requesting no-more-sessions@openssh.com
+debug1: Entering interactive session.
+debug1: pledge: network
+debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
+debug1: Sending environment.
+debug1: Sending env LC_ADDRESS = en_US.UTF-8
+debug1: Sending env LC_NAME = en_US.UTF-8
+debug1: Sending env LC_MONETARY = en_US.UTF-8
+debug1: Sending env LANG = en_US.UTF-8
+debug1: Sending env LC_PAPER = en_US.UTF-8
+debug1: Sending env LC_IDENTIFICATION = en_US.UTF-8
+debug1: Sending env LC_TELEPHONE = en_US.UTF-8
+debug1: Sending env LC_MEASUREMENT = en_US.UTF-8
+debug1: Sending env LC_TIME = en_US.UTF-8
+debug1: Sending env LC_NUMERIC = en_US.UTF-8
+debug1: Sending command: scp -v -f /home/ftpuser/ftp/upload/*
+Sending file modes: C0664 1312372 daptyja-ae0b3d4d-1c40-47f6-951f-45746bd878d1.png
+Sink: C0664 1312372 daptyja-ae0b3d4d-1c40-47f6-951f-45746bd878d1.png
+Sending file modes: C0664 1636185 daq53vf-955123ff-28d9-4620-9967-cfb78c6222a9.png
+Sink: C0664 1636185 daq53vf-955123ff-28d9-4620-9967-cfb78c6222a9.png
+Sending file modes: C0664 2595007 Screenshot from 2021-01-22 03-12-10.png
+Sink: C0664 2595007 Screenshot from 2021-01-22 03-12-10.png
+Sending file modes: C0664 1693138 Screenshot from 2021-02-16 21-14-22.png
+Sink: C0664 1693138 Screenshot from 2021-02-16 21-14-22.png
+Sending file modes: C0664 794897 Screenshot from 2021-02-22 02-08-13.png
+Sink: C0664 794897 Screenshot from 2021-02-22 02-08-13.png
+debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+debug1: client_input_channel_req: channel 0 rtype eow@openssh.com reply 0
+debug1: channel 0: free: client-session, nchannels 1
+debug1: fd 0 clearing O_NONBLOCK
+debug1: fd 2 clearing O_NONBLOCK
+Transferred: sent 5124, received 8045096 bytes, in 0.3 seconds
+Bytes per second: sent 14986.6, received 23530172.8
+debug1: Exit status 0
