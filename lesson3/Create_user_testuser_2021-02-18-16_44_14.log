@@ -1,0 +1,15 @@
+Logging setup to Create_user_testuser_2021-02-18-16:44:14.log
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.mirohost.net
+ * epel: mirrors.colocall.net
+ * extras: mirror.mirohost.net
+ * updates: mirror.mirohost.net
+No packages marked for update
+adduser: warning: the home directory already exists.
+Not copying any file from skel directory into it.
+Creating mailbox file: File exists
+New password: 
+Retype new password: 
+Changing password for user testuser.
+passwd: all authentication tokens updated successfully.
