@@ -44,7 +44,9 @@ sudo systemctl start vsftpd
 sudo systemctl enable vsftpd
 
 #Configure rule for firewall to allow FTP traffic on Port 21
+#And ports 10000-10001 for passive mode
 sudo firewall-cmd --zone=public --permanent --add-port=21/tcp
+sudo firewall-cmd --zone=public --permanent --add-port=10000-10001/tcp
 sudo firewall-cmd --zone=public --permanent --add-service=ftp
 sudo firewall-cmd --reload  
 
