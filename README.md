@@ -1,15 +1,15 @@
 # **Taras**  **Stepeniuk**
-##### Python Developer
+Python Developer
+####
 
-
-I have experience development of Web applications. Created BackEND at Django/Rest API, FrontEND at React and created website using HTML, CSS, JS. Also I have experience creating testing, API testing and writing automation tests using Selenium WebDriver(Python).
+I have 1+ year experience development of Web applications. Created BackEND at Django/Rest API, FrontEND at React and created website using HTML, CSS, JS. Also I have experience creating testing, API testing and writing automation tests using Selenium WebDriver(Python).
 ____
 ####  Skills
 
 * **Programming Languages**
   * Python 
   * JavaScript
-  * HTML, CSS
+  * HTML/CSS
   * SQL 
 
 * **Technologies & Frameworks**
@@ -17,7 +17,7 @@ ____
   * REST API
   * React
   * Selenium WebDriver
-  * Pytest/Unitest
+  * Pytest/Unite
 
 * **Development Tools**
   * VisualStudio
@@ -33,10 +33,7 @@ ____
 * **Operating Systems**
   * Windows
   * MacOS
-  * Linux
-
-* **Methodologies**
-  * SCRUM 
+  * Linux 
 
 * **Languages**
   * English (Intermediate B1)
@@ -55,12 +52,11 @@ ____
 ____
 #### Education
 
-* **_2007 - 2011_** - Chernivtsi Polytechnic College. Specialization Development, productionand service of electronic device. Qualification of Junior Specialist in radioengineering.
+* **_2007 - 2011_** - Chernivtsi Polytechnic College. Qualification of Junior Specialist in radioengineering.
 
-* **_2011 - 2014_** - Yuriy Fedkovych Chernivtsi National University. Specialization RadioEngineering and Information Security. Qualifications Specialists degree in Radio Engineering. |
+* **_2011 - 2014_** - Yuriy Fedkovych Chernivtsi National University. Qualifications Specialists degree in Radio Engineering. |
 ____
 #### Courses
-
 
 * **2019** Python Core. SoftServe Academy 
 * **2020** QA Test Automation with Python. SoftServe Academy
