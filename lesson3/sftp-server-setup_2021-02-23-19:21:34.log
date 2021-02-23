@@ -1,0 +1,28 @@
+Logging setup to /tmp/sftp-server-setup_2021-02-23-19:21:34.log
+Enter username: New password: 
+BAD PASSWORD: The password fails the dictionary check - it is based on a dictionary word
+Retype new password: 
+Changing password for user crashuser.
+passwd: all authentication tokens updated successfully.
+Loaded plugins: fastestmirror
+Determining fastest mirrors
+ * base: mirror.besthosting.ua
+ * epel: mirrors.colocall.net
+ * extras: mirror.besthosting.ua
+ * updates: mirror.besthosting.ua
+No packages marked for update
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.besthosting.ua
+ * epel: mirrors.colocall.net
+ * extras: mirror.besthosting.ua
+ * updates: mirror.besthosting.ua
+Package vsftpd-3.0.2-28.el7.x86_64 already installed and latest version
+Nothing to do
+Warning: ALREADY_ENABLED: 21:tcp
+success
+Warning: ALREADY_ENABLED: ftp
+success
+success
+vsftpd.conf.default
+Configuring user[33m crashuser[0m permissions for SFTP server was [32mDone ![0m
