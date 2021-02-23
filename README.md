@@ -35,9 +35,6 @@ ____
   * MacOS
   * Linux
 
-* **Methodologies**
-  * SCRUM 
-
 * **Languages**
   * English (Intermediate B1)
 
@@ -50,17 +47,9 @@ ____
   *Responsibilities:* created server app at Django/Rest API, client app at React and created website using HTML, CSS, JS. |
 * **2020 sep - present - _«__Trans-GPS__ »_** - software engineer.
   System for GPS monitoring public transport, includes a web-application, a mobile app and a smart stop with info scoreboard. 
-  *Responsibilities:* add new features to backend, create frontend for React. |
-
-____
-#### Education
-
-* **_2007 - 2011_** - Chernivtsi Polytechnic College. Specialization Development, productionand service of electronic device. Qualification of Junior Specialist in radioengineering.
-
-* **_2011 - 2014_** - Yuriy Fedkovych Chernivtsi National University. Specialization RadioEngineering and Information Security. Qualifications Specialists degree in Radio Engineering. |
+  *Responsibilities:* add new features to backend, create frontend for React.
 ____
 #### Courses
-
 
 * **2019** Python Core. SoftServe Academy 
 * **2020** QA Test Automation with Python. SoftServe Academy
