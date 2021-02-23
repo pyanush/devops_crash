@@ -1,0 +1,97 @@
+Logging transfer of files to /tmp/sftp_session.2021-02-18-21:56:32.log
+Files from/to current directory will be uloaded/downloaded
+Chose what you want to do with files, 
+ download from FTP 'd' or upload on FTP 'u':
+d / u :
+Uploading current directory to FTP
+Executing: program /usr/bin/ssh host 127.0.0.1, user testuser, command scp -v -d -t /home/testuser/ftp/upload
+OpenSSH_7.4p1, OpenSSL 1.0.2k-fips  26 Jan 2017
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 58: Applying options for *
+debug1: Connecting to 127.0.0.1 [127.0.0.1] port 2021.
+debug1: Connection established.
+debug1: key_load_public: No such file or directory
+debug1: identity file /home/mxy/.ssh/id_rsa type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file /home/mxy/.ssh/id_rsa-cert type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file /home/mxy/.ssh/id_dsa type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file /home/mxy/.ssh/id_dsa-cert type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file /home/mxy/.ssh/id_ecdsa type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file /home/mxy/.ssh/id_ecdsa-cert type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file /home/mxy/.ssh/id_ed25519 type -1
+debug1: key_load_public: No such file or directory
+debug1: identity file /home/mxy/.ssh/id_ed25519-cert type -1
+debug1: Enabling compatibility mode for protocol 2.0
+debug1: Local version string SSH-2.0-OpenSSH_7.4
+debug1: Remote protocol version 2.0, remote software version OpenSSH_7.4
+debug1: match: OpenSSH_7.4 pat OpenSSH* compat 0x04000000
+debug1: Authenticating to 127.0.0.1:2021 as 'testuser'
+debug1: SSH2_MSG_KEXINIT sent
+debug1: SSH2_MSG_KEXINIT received
+debug1: kex: algorithm: curve25519-sha256
+debug1: kex: host key algorithm: ecdsa-sha2-nistp256
+debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: curve25519-sha256 need=64 dh_need=64
+debug1: kex: curve25519-sha256 need=64 dh_need=64
+debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
+debug1: Server host key: ecdsa-sha2-nistp256 SHA256:12KA/cX1FW4zHIGZP59gAWoChqPfbU5mJtYt+IwINv4
+debug1: checking without port identifier
+Warning: Permanently added '[127.0.0.1]:2021' (ECDSA) to the list of known hosts.
+debug1: rekey after 134217728 blocks
+debug1: SSH2_MSG_NEWKEYS sent
+debug1: expecting SSH2_MSG_NEWKEYS
+debug1: SSH2_MSG_NEWKEYS received
+debug1: rekey after 134217728 blocks
+debug1: SSH2_MSG_EXT_INFO received
+debug1: kex_input_ext_info: server-sig-algs=<rsa-sha2-256,rsa-sha2-512>
+debug1: SSH2_MSG_SERVICE_ACCEPT received
+debug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic,password
+debug1: Next authentication method: gssapi-keyex
+debug1: No valid Key exchange context
+debug1: Next authentication method: gssapi-with-mic
+debug1: Unspecified GSS failure.  Minor code may provide more information
+No Kerberos credentials available (default cache: KEYRING:persistent:1000)
+
+debug1: Unspecified GSS failure.  Minor code may provide more information
+No Kerberos credentials available (default cache: KEYRING:persistent:1000)
+
+debug1: Next authentication method: publickey
+debug1: Trying private key: /home/mxy/.ssh/id_rsa
+debug1: Trying private key: /home/mxy/.ssh/id_dsa
+debug1: Trying private key: /home/mxy/.ssh/id_ecdsa
+debug1: Trying private key: /home/mxy/.ssh/id_ed25519
+debug1: Next authentication method: password
+debug1: Authentication succeeded (password).
+Authenticated to 127.0.0.1 ([127.0.0.1]:2021).
+debug1: channel 0: new [client-session]
+debug1: Requesting no-more-sessions@openssh.com
+debug1: Entering interactive session.
+debug1: pledge: network
+debug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0
+debug1: Sending environment.
+debug1: Sending env LANG = en_US.UTF-8
+debug1: Sending command: scp -v -d -t /home/testuser/ftp/upload
+Sending file modes: C0750 1015 file_transfer.sh
+Sink: C0750 1015 file_transfer.sh
+Sending file modes: C0775 179 log_test.sh
+Sink: C0775 179 log_test.sh
+Sending file modes: C0666 11 my_file
+Sink: C0666 11 my_file
+Sending file modes: C0744 2693 nusercfh.sh
+Sink: C0744 2693 nusercfh.sh
+Sending file modes: C0664 531 text.txt
+Sink: C0664 531 text.txt
+debug1: client_input_channel_req: channel 0 rtype exit-status reply 0
+debug1: channel 0: free: client-session, nchannels 1
+debug1: fd 0 clearing O_NONBLOCK
+debug1: fd 1 clearing O_NONBLOCK
+debug1: fd 2 clearing O_NONBLOCK
+Transferred: sent 6824, received 2852 bytes, in 0.5 seconds
+Bytes per second: sent 14935.1, received 6241.9
+debug1: Exit status 0
