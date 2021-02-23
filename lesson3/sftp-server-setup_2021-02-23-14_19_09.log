@@ -1,0 +1,45 @@
+Logging setup to /tmp/sftp-server-setup_2021-02-23-14:19:09.log
+Adding user with passwordless access to sudo
+New password: 
+BAD PASSWORD: The password is a palindrome
+Retype new password: 
+Changing password for user bob.
+passwd: all authentication tokens updated successfully.
+bob ALL=(ALL) NOPASSWD: ALL
+Installing ftp
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.lanet.network
+ * epel: mirrors.colocall.net
+ * extras: mirror.lanet.network
+ * updates: mirror.lanet.network
+No packages marked for update
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.lanet.network
+ * epel: mirrors.colocall.net
+ * extras: mirror.lanet.network
+ * updates: mirror.lanet.network
+Package ftp-0.17-67.el7.x86_64 already installed and latest version
+Nothing to do
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.lanet.network
+ * epel: mirrors.colocall.net
+ * extras: mirror.lanet.network
+ * updates: mirror.lanet.network
+Package vsftpd-3.0.2-28.el7.x86_64 already installed and latest version
+Nothing to do
+Configuring vsftpd service
+Adding firewall rules
+Warning: ALREADY_ENABLED: 21:tcp
+success
+Warning: ALREADY_ENABLED: ftp
+success
+success
+Backup deafault vsftpd config
+userlist_file=/etc/vsftpd/user_list
+chroot_list_file=/etc/vsftpd/chroot_list
+bob
+bob
+Restarting vsftpd service
