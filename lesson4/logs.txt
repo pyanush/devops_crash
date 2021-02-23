@@ -1,0 +1,4 @@
+Connected to 192.168.0.103.
+sftp> ls -l
+-rwxr-xr-x    1 user     user         3234 Feb 22 09:21 ftp.sh
+-rw-r--r--    1 root     root           40 Feb 23 10:59 logs.txt

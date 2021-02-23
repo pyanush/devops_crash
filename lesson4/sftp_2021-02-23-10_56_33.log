@@ -1,0 +1,28 @@
+/
+Connected to 192.168.0.103.
+sftp> cd /
+sftp> ls -l
+lrwxrwxrwx    1 root     root            7 Feb 13 07:05 bin
+dr-xr-xr-x    5 root     root         4096 Feb 13 09:16 boot
+drwxr-xr-x   19 root     root         3080 Feb 23 10:22 dev
+drwxr-xr-x   77 root     root         8192 Feb 23 10:22 etc
+-rwxr-xr-x    1 root     root          276 Feb 23 10:56 get.sh
+drwxr-xr-x    6 root     root           68 Feb 23 10:33 home
+lrwxrwxrwx    1 root     root            7 Feb 13 07:05 lib
+lrwxrwxrwx    1 root     root            9 Feb 13 07:05 lib64
+drwxr-xr-x    2 root     root            6 Apr 11  2018 media
+drwxr-xr-x    2 root     root            6 Apr 11  2018 mnt
+drwxr-xr-x    2 root     root            6 Apr 11  2018 opt
+dr-xr-xr-x  130 root     root            0 Feb 23 10:21 proc
+dr-xr-x---    9 root     root          246 Feb 23 10:23 root
+drwxr-xr-x   25 root     root          740 Feb 23 10:25 run
+lrwxrwxrwx    1 root     root            8 Feb 13 07:05 sbin
+drwxr-xr-x    2 root     root            6 Apr 11  2018 srv
+dr-xr-xr-x   13 root     root            0 Feb 23 10:21 sys
+drwxrwxrwt    2 root     root           42 Feb 23 10:56 tmp
+drwxr-xr-x   13 root     root          155 Feb 13 07:05 usr
+drwxr-xr-x   21 root     root         4096 Feb 22 10:21 var
+sftp> lcd /home/user/
+sftp> #get log.tar logs.tar
+sftp> get /tmp/sftp_2021-02-23-10:56:33.log logs.txt
+Fetching /tmp/sftp_2021-02-23-10:56:33.log to logs.txt
