@@ -8,6 +8,9 @@ echo "Logging setup to ${LOG_F}"
 sudo yum install epel-release
 sudo yum update -y
 sudo yum install vsftpd
+
+sudo systemctl stop firewalld
+
 sudo systemctl start vsftpd
 sudo systemctl enable vsftpd
 sudo firewall-cmd --zone=public --permanent --add-port=21/tcp
