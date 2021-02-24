@@ -11,7 +11,7 @@ echo ==========adding user==========
 sudo adduser $1
 sudo passwd $1
 sudo usermod -aG wheel $1
-echo '$1 ALL=(ALL) NOPASSWD:ALL'>/etc/sudoers.d/$1
+sudo echo '$1 ALL=(ALL) NOPASSWD:ALL'>/etc/sudoers.d/$1
 sudo chmod 0440 /etc/sudoers.d/$1
 
 sudo mkdir /home/$1/.ssh
