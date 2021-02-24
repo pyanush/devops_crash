@@ -1,16 +1,15 @@
 # **Taras**  **Stepeniuk**
-Python Developer
-####
+**Python Developer**
 
-
-I have 1+ year experience development of Web applications. Created BackEND at Django/Rest API, FrontEND at React and created website using HTML, CSS, JS. Also I have experience creating testing, API testing and writing automation tests using Selenium WebDriver(Python).
+____
+I have 1+ year experience development of Web applications. Created BackEND at Django/RestAPI, FrontEND at React and created website using HTML, CSS, JS. Also I have experience creating testing, API testing and writing automation tests using Selenium WebDriver(Python).
 ____
 ####  Skills
 
 * **Programming Languages**
   * Python 
   * JavaScript
-  * HTML, CSS
+  * HTML/CSS
   * SQL 
 
 * **Technologies & Frameworks**
@@ -21,7 +20,7 @@ ____
   * Pytest/Unitest
 
 * **Development Tools**
-  * VisualStudio
+  * VSCode
   * PyCharm
   * Git
   * Postman
@@ -43,10 +42,15 @@ ____
 #### Experience
 
 * **_2017 - 2018_ - _«__Ideal Pore__»_** - embedded software engineer.
+
   *Responsibilities:* designing of electronic devices. Development of circuit engineering, PCBs, software development for microcontrollers and prototype testing. 
+  ######
 * **_2020 mar - 2020 sep_ - _«__AZSoftRocks__ »_** - FullStack developer.
-  *Responsibilities:* created server app at Django/Rest API, client app at React and created website using HTML, CSS, JS. |
+
+  *Responsibilities:* created server app at Django/Rest API, client app at React and created website using HTML, CSS, JS.
+  ######
 * **2020 sep - present - _«__Trans-GPS__ »_** - software engineer.
+
   System for GPS monitoring public transport, includes a web-application, a mobile app and a smart stop with info scoreboard. 
   *Responsibilities:* add new features to backend, create frontend for React.
 ____
