@@ -8,8 +8,8 @@ echo "=====Logging setup to ${LOG_F}====="
 
 
 echo ==========adding user==========
-adduser $1
-passwd $1
+sudo adduser $1
+sudo passwd $1
 sudo usermod -aG wheel $1
 echo '$1 ALL=(ALL) NOPASSWD:ALL'>/etc/sudoers.d/$1
 sudo chmod 0440 /etc/sudoers.d/$1
