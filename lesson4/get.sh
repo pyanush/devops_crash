@@ -30,13 +30,13 @@ git config --global user.email poliyakpavlo@gmail.com
 sudo git clone https://github.com/pyanush/devops_crash.git
 sudo cd ./devops_crash
 git branch
-git checkout polyakpavlo_25021982
-git branch --set-upstream-to=origin polyakpavlo_25021982
+git checkout pavlo_polyak_25021982
+git branch --set-upstream-to=origin pavlo_polyak_25021982
 git pull
 sudo mkdir lesson4
 sudo cp /home/user/*.log lesson4
 git add .
 git status
 git commit -m "logs add in lesson3"
-git push -u origin polyakpavlo_25021982
+git push -u origin pavlo_polyak_25021982
 git status
