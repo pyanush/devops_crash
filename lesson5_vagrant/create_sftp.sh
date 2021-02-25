@@ -2,19 +2,22 @@
 
 #settup logging
 
-set -e 
+set 
 LOG_F="/tmp/sftp-server-setup_"`date "+%F-%T"`".log"
 exec &> >(tee "${LOG_F}")
 
 #adding user with passwordless access to sudo 
-getent passwd $1 > /dev/null && echo "User $1 already exist" || \
-if [ "$?" != "0" ]
+getent passwd $1 &> /dev/null
+exist_user="$?"
+if [ "$exist_user" != "0" ]
   then
     sudo adduser $1
     echo "test" | sudo passwd $1 --stdin
     sudo usermod -aG wheel $1
     echo "$1 ALL=(ALL) NOPASSWD:ALL" | sudo EDITOR='tee -a' visudo
-fi 
+  else
+    echo "user $1 already exist"
+fi
 
 #updating system and installing vsftpd server
 
