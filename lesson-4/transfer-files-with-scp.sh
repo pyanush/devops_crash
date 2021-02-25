@@ -14,7 +14,7 @@ echo "*   Enter 'd' to DOWNLOAD files from server"
 echo "==========================================="
 echo -e "*   Enter your option: " | tr -d '\n';
 read option;
-echo "==========================================="
+echo -e "===========================================\n"
 echo " "
 
 #Upload files on FTP server

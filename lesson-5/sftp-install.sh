@@ -10,33 +10,32 @@ sudo yum -y update
 [ $? -eq 0 ] && echo -e "\033[32mSystem update successfully\033[0m" || echo -e "\033[31mFailed to update system\033[0m"
 
 #Installing additional packages
-sudo yum -y install perl net-tools nano 
+sudo yum -y install net-tools nano 
 
 #User creation
 echo "---------------------------------------------------------------------"
 echo "                        Create new FTP user                          "
 echo "---------------------------------------------------------------------"
-read -p "*   Enter username: " username
-read -s -p "*   Enter password: " password
-group=wheel
 
+group=wheel
+     
      #Creating a new user and set password for him
-     crypt_passwd=$(perl -e 'print crypt($ARGV[0], "password")' $password)  
-     useradd -m -p $crypt_passwd $username
+     useradd -m $1
+     echo $2 | sudo passwd $1 --stdin
 
      #Adding user to sudo group
-     sudo usermod -a -G $group $username
+     sudo usermod -a -G $group $1
 
      #Creating upload directory
-     sudo mkdir -p /home/$username/ftp/upload
+     sudo mkdir -p /home/$1/ftp/upload
 
      #Changing permissions
-     sudo chmod 550 /home/$username/ftp
-     sudo chmod 750 /home/$username/ftp/upload
-     sudo chown -R $username: /home/$username/ftp
+     sudo chmod 550 /home/$1/ftp
+     sudo chmod 750 /home/$1/ftp/upload
+     sudo chown -R $1: /home/$1/ftp
 
      #Access to SUDO commands without a password
-     echo "$username ALL=(ALL) NOPASSWD:ALL" | sudo EDITOR='tee -a' visudo   
+     echo "$1 ALL=(ALL) NOPASSWD:ALL" | sudo EDITOR='tee -a' visudo   
 
 #Install and start FTP service
 sudo yum install vsftpd -y  
@@ -45,6 +44,7 @@ sudo systemctl enable vsftpd
 
 #Configure rule for firewall to allow FTP traffic on Port 21
 #And ports 10000-10001 for passive mode
+sudo systemctl start firewalld
 sudo firewall-cmd --zone=public --permanent --add-port=21/tcp
 sudo firewall-cmd --zone=public --permanent --add-port=10000-10001/tcp
 sudo firewall-cmd --zone=public --permanent --add-service=ftp
@@ -73,8 +73,8 @@ grep -q "^$1" /etc/vsftpd/vsftpd.conf && sudo sed -i "s/^$1.*/$1=$2/" /etc/vsftp
      change_config pasv_min_port 10000
 
 #Add user to FTP userlist and chroot list
-echo $username | sudo tee –a /etc/vsftpd/user_list
-echo $username | sudo tee –a /etc/vsftpd/chroot_list  
+echo $1 | sudo tee –a /etc/vsftpd/user_list
+echo $1 | sudo tee –a /etc/vsftpd/chroot_list  
 
 # Restarting FTP service
 sudo systemctl restart vsftpd
