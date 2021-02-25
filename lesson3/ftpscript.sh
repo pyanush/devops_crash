@@ -35,6 +35,7 @@ sudo systemctl enable vsftpd
 sudo cp /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.default
 
 #Firewall rule to allow port 21
+sudo systemctl start firewalld
 sudo firewall-cmd --zone=public --permanent --add-port=21/tcp
 sudo firewall-cmd --zone=public --permanent --add-service=ftp
 sudo firewall-cmd --reload
