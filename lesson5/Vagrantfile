@@ -17,5 +17,5 @@ Vagrant.configure("2") do |config|
     s.path="sftp.sh"
     s.args=["testuser", "0123456789"]
   end
-  
+  config.vm.provision "shell", path: "boot.sh"
 end
