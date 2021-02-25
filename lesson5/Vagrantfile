@@ -71,7 +71,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "shell" do |s|
     s.path = "ftpscript.sh"
-    s.args = ["testuser", '15d6v2E58fEG54ss8854f7']
+    s.args = ["testuser", '15d#6v@2E5*8fE*G5(4ss8854f']
   end
 
 end

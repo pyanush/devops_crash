@@ -11,7 +11,7 @@ echo "Logging setup to ${LOG_F}"
 
 #Adding user with passwordless access to sudo
 sudo adduser $1
-sudo passwd $1
+echo $2 | sudo passwd $1 --stdin
 sudo usermod -aG wheel $1
 echo "$1 ALL=(ALL) NOPASSWD: ALL" | sudo EDITOR='tee -a' visudo
 
@@ -35,6 +35,7 @@ sudo systemctl enable vsftpd
 sudo cp /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.default
 
 #Firewall rule to allow port 21
+sudo systemctl start firewalld
 sudo firewall-cmd --zone=public --permanent --add-port=21/tcp
 sudo firewall-cmd --zone=public --permanent --add-service=ftp
 sudo firewall-cmd --reload
@@ -70,23 +71,3 @@ echo $1 | sudo tee –a /etc/vsftpd/chroot_list
 #Restarting vsftpd service
 sudo systemctl restart vsftpd
 
-#Function for boxed message
-function box_out()
-{
-  local s=("$@") b w
-  for l in "${s[@]}"; do
-    ((w<${#l})) && { b="$l"; w="${#l}"; }
-  done
-  tput setaf 3
-  echo " -${b//?/-}-
-| ${b//?/ } |"
-  for l in "${s[@]}"; do
-    printf '| %s%*s%s |\n' "$(tput setaf 4)" "-$w" "$l" "$(tput setaf 3)"
-  done
-  echo "| ${b//?/ } |
- -${b//?/-}-"
-  tput sgr 0
-}
-
-#Done message
-box_out "Created user $1 with passwordless access to sudo" "Installed & configured vsftpd" "Setted up firewall rules" "Installed: mc, htop, nmap"
