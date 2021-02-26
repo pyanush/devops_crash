@@ -1,5 +1,6 @@
+import gen
 import re,os
-file = 'data.csv'
+file = 'data_gen.csv'
 newfile = 'newdata.csv'
 line = ""
 
@@ -25,7 +26,8 @@ def response(reg,fl):
               line += str(x)+"\n"
       writefile(fl)
 
-response('(http://www\..+)','www_')
+#response('(https://www\..+)','www_')
+response('(\d+\.\d+\.\d+\.\d+)','ip_')      
 response('(\d{3}-\d{3}-\d{4})','phone_')
-response('(\d{5})','zip_')
+#response('(\d{5})','zip_')
 response('[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}','email_')
