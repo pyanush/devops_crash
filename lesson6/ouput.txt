@@ -1,0 +1,22 @@
+china
+chiNA
+CHINA
+1	ICBC	China	$45.3 B	$4,322.5 B	$242.3 B
+2	China Construction Bank	China	$38.9 B	$3,822 B	$203.8 B
+5	Agricultural Bank of China	China	$30.9 B	$3,697.5 B	$147.2 B
+7	Ping An Insurance Group	China	$18.8 B	$1,218.6 B	$187.2 B
+10	Bank of China	China	$27.2 B	$3,387 B	$112.8 B
+26	China Merchants Bank	China	$13.7 B	$1,094.9 B	$120.9 B
+28	China Mobile	Hong Kong	$15.5 B	$233.9 B	$164.9 B
+30	Postal Savings Bank Of China (PSBC)	China	$9 B	$1,522.4 B	$92 B
+31	Alibaba	China	$24.7 B	$189.4 B	$545.4 B
+32	PetroChina	China	$6.6 B	$392.3 B	$65.9 B
+37	China Life Insurance	China	$8.5 B	$536.2 B	$60.3 B
+45	Bank of Communications	China	$11.2 B	$1,422.1 B	$47.1 B
+50	Tencent Holdings	China	$13.5 B	$137 B	$509.7 B
+57	Industrial Bank	China	$9.2 B	$1,045 B	$49 B
+60	Sinopec	China	$3.3 B	$254.8 B	$76.6 B
+65	Shanghai Pudong Development	China	$8.6 B	$1,029.3 B	$44.2 B
+79	China State Construction Engineering	China	$6.1 B	$292.3 B	$30.7 B
+90	China Minsheng Bank	China	$7.8 B	$959.2 B	$32.8 B
+100	China Vanke	China	$5.6 B	$245.3 B	$37.6 B
