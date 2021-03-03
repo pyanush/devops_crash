@@ -16,10 +16,4 @@ data = open('ip_logs.txt')
 df = pd.read_csv(data, sep=',', names=("IP", "description" ))
 df.sort_values(by=['IP'], inplace=True)
 df.to_excel("output.xlsx")
-# for index, row in df.iterrows():
-#     y=f'{row[0]}\t{row[1]}\n'
-#     print(y)
-#     with open('output.csv', 'a') as outf:
-#         outf.write(y)
-
 data.close()
