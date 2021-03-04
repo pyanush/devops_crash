@@ -34,7 +34,7 @@ for index, row in log.iterrows():
             l4=re.sub(r'sshd\[\d{1,6}\]\: ', '', re.sub(r'vmi\d{6} ', '', line))
             #print(l4)
             out.write(l4+'\n')
-            error=open('fail_pwd.txt', 'a')
+            #error=open('fail_pwd.txt', 'a')
            
 out.close()
 
