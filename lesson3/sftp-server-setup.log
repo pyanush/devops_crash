@@ -1,0 +1,51 @@
+[mykola@centOS tmp]$ cat sftp-server-setup_%f-13\:54\:29.log 
+Logging setup to /tmp/sftp-server-setup_%f-13:54:29.log
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.mirohost.net
+ * epel: mirror.datacenter.by
+ * extras: mirror.mirohost.net
+ * updates: mirror.mirohost.net
+Resolving Dependencies
+--> Running transaction check
+---> Package epel-release.noarch 0:7-11 will be updated
+---> Package epel-release.noarch 0:7-13 will be an update
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                Arch             Version           Repository      Size
+================================================================================
+Updating:
+ epel-release           noarch           7-13              epel            15 k
+
+Transaction Summary
+================================================================================
+Upgrade  1 Package
+
+Total download size: 15 k
+Downloading packages:
+Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+warning: /var/cache/yum/x86_64/7/epel/packages/epel-release-7-13.noarch.rpm: Header V4 RSA/SHA256 Signature, key ID 352c64e5: NOKEY
+Public key for epel-release-7-13.noarch.rpm is not installed
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+Importing GPG key 0x352C64E5:
+ Userid     : "Fedora EPEL (7) <epel@fedoraproject.org>"
+ Fingerprint: 91e9 7d7c 4a5e 96f1 7f3e 888f 6a2f aea2 352c 64e5
+ Package    : epel-release-7-11.noarch (@extras)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Updating   : epel-release-7-13.noarch                                     1/2
+  Cleanup    : epel-release-7-11.noarch                                     2/2
+  Verifying  : epel-release-7-13.noarch                                     1/2
+  Verifying  : epel-release-7-11.noarch                                     2/2
+
+Updated:
+  epel-release.noarch 0:7-13
+
+Complete!
+[mykola@centOS tmp]$

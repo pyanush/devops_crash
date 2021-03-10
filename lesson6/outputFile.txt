@@ -1,0 +1,3 @@
+sudo groupadd <group_name> – add new group
+sudo usermod -aG <group_name> <user_name> – add user to group
+sudo groupdel <group_name> – delete group
