@@ -1,0 +1,24 @@
+2021-03-11 01:09:15,476 INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+2021-03-11 01:09:15,477 INFO sqlalchemy.engine.base.Engine ()
+2021-03-11 01:09:15,477 INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+2021-03-11 01:09:15,477 INFO sqlalchemy.engine.base.Engine ()
+2021-03-11 01:09:15,478 INFO sqlalchemy.engine.base.Engine PRAGMA main.table_info("access_logs")
+2021-03-11 01:09:15,478 INFO sqlalchemy.engine.base.Engine ()
+2021-03-11 01:09:15,479 INFO sqlalchemy.engine.base.Engine PRAGMA temp.table_info("access_logs")
+2021-03-11 01:09:15,479 INFO sqlalchemy.engine.base.Engine ()
+2021-03-11 01:09:15,480 INFO sqlalchemy.engine.base.Engine 
+CREATE TABLE access_logs (
+	id INTEGER NOT NULL, 
+	hostname VARCHAR, 
+	ip_address VARCHAR, 
+	date_time DATETIME, 
+	message VARCHAR, 
+	PRIMARY KEY (id)
+)
+
+
+2021-03-11 01:09:15,481 INFO sqlalchemy.engine.base.Engine ()
+2021-03-11 01:09:15,487 INFO sqlalchemy.engine.base.Engine COMMIT
+2021-03-11 01:09:16,878 INFO sqlalchemy.engine.base.Engine INSERT INTO access_logs (hostname, ip_address, date_time, message) VALUES (?, ?, ?, ?)
+2021-03-11 01:09:16,878 INFO sqlalchemy.engine.base.Engine (('vmi526857', '0.0.0.0', '2021-02-15 13:01:24.000000', 'Server listening on 0.0.0.0 port 22.'), ('vmi526857', '91.194.90.179', '2021-02-15 13:01:31.000000', 'Accepted password for root from 91.194.90.179 port 41006 ssh2'), ('vmi526857', '91.194.90.179', '2021-02-15 13:01:31.000000', 'Received disconnect from 91.194.90.179 port 41006:11: PECL/ssh2 (http://pecl.php.net/packages/ssh2)'), ('vmi526857', '91.194.90.179', '2021-02-15 13:01:31.000000', 'Disconnected from user root 91.194.90.179 port 41006'), ('vmi526857', '218.92.0.172', '2021-02-15 13:01:42.000000', 'pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=218.92.0.172  user=root'), ('vmi526857', '218.92.0.172', '2021-02-15 13:01:45.000000', 'Failed password for root from 218.92.0.172 port 39883 ssh2'), ('vmi526857', '218.92.0.172', '2021-02-15 13:01:51.000000', 'message repeated 2 times: [ Failed password for root from 218.92.0.172 port 39883 ssh2]'), ('vmi526857', '218.92.0.172', '2021-02-15 13:01:55.000000', 'Failed password for root from 218.92.0.172 port 39883 ssh2')  ... displaying 10 of 133743 total bound parameter sets ...  ('vmi526857', '195.200.245.18', '2021-03-02 11:34:24.000000', 'Accepted publickey for oleksii from 195.200.245.18 port 46594 ssh2: RSA SHA256:9Uq9wK/I5qiL/5yZKEOVYNRPfx96WpGs5U5BhgviMks'), ('vmi526857', '195.200.245.18', '2021-03-02 11:34:25.000000', 'Starting session: shell on pts/0 for oleksii from 195.200.245.18 port 46594 id 0'))
+2021-03-11 01:09:17,244 INFO sqlalchemy.engine.base.Engine COMMIT

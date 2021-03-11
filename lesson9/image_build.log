@@ -1,0 +1,73 @@
+Sending build context to Docker daemon  18.13MB
+Step 1/6 : FROM python
+latest: Pulling from library/python
+0ecb575e629c: Pulling fs layer
+7467d1831b69: Pulling fs layer
+feab2c490a3c: Pulling fs layer
+f15a0f46f8c3: Pulling fs layer
+937782447ff6: Pulling fs layer
+e78b7aaaab2c: Pulling fs layer
+b68a1c52a41c: Pulling fs layer
+ddcd772f47ec: Pulling fs layer
+aef84dafa567: Pulling fs layer
+f15a0f46f8c3: Waiting
+937782447ff6: Waiting
+e78b7aaaab2c: Waiting
+b68a1c52a41c: Waiting
+ddcd772f47ec: Waiting
+aef84dafa567: Waiting
+7467d1831b69: Verifying Checksum
+7467d1831b69: Download complete
+feab2c490a3c: Verifying Checksum
+feab2c490a3c: Download complete
+0ecb575e629c: Verifying Checksum
+0ecb575e629c: Download complete
+e78b7aaaab2c: Verifying Checksum
+e78b7aaaab2c: Download complete
+f15a0f46f8c3: Verifying Checksum
+f15a0f46f8c3: Download complete
+ddcd772f47ec: Verifying Checksum
+ddcd772f47ec: Download complete
+aef84dafa567: Verifying Checksum
+aef84dafa567: Download complete
+b68a1c52a41c: Verifying Checksum
+b68a1c52a41c: Download complete
+0ecb575e629c: Pull complete
+937782447ff6: Verifying Checksum
+937782447ff6: Download complete
+7467d1831b69: Pull complete
+feab2c490a3c: Pull complete
+f15a0f46f8c3: Pull complete
+937782447ff6: Pull complete
+e78b7aaaab2c: Pull complete
+b68a1c52a41c: Pull complete
+ddcd772f47ec: Pull complete
+aef84dafa567: Pull complete
+Digest: sha256:2c9e0841ab570f51f28891513c4d9b02e13954fa2453df909e0a6bbfbbaaaad3
+Status: Downloaded newer image for python:latest
+ ---> 254d4a8a8f31
+Step 2/6 : COPY core.py logfile.log requirements.txt /app/
+ ---> e21f0542daac
+Step 3/6 : RUN pip3 install --upgrade pip && pip3 install -r /app/requirements.txt
+ ---> Running in 471322b76244
+Requirement already satisfied: pip in /usr/local/lib/python3.9/site-packages (21.0.1)
+Collecting SQLAlchemy
+  Downloading SQLAlchemy-1.3.23-cp39-cp39-manylinux2010_x86_64.whl (1.3 MB)
+Installing collected packages: SQLAlchemy
+Successfully installed SQLAlchemy-1.3.23
+Removing intermediate container 471322b76244
+ ---> bd0a56c7b474
+Step 4/6 : WORKDIR "/app/"
+ ---> Running in d90a08ae844f
+Removing intermediate container d90a08ae844f
+ ---> 9527b149d61a
+Step 5/6 : ENTRYPOINT ["python3", "core.py"]
+ ---> Running in 26e66310eb3f
+Removing intermediate container 26e66310eb3f
+ ---> 11957805c5ec
+Step 6/6 : CMD ["core.py"]
+ ---> Running in 4c67dc23e507
+Removing intermediate container 4c67dc23e507
+ ---> e0609bc5b98c
+Successfully built e0609bc5b98c
+Successfully tagged docker_parser:latest
