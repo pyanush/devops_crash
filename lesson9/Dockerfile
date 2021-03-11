@@ -11,6 +11,6 @@ RUN pip install -r req.txt
 CMD ["pwd"]
 VOLUME /opt/app
 ENTRYPOINT ["python", "sql_orm.py", "logfile.log"]
-CMD ["python", "sql_core.py", "logfile.log"]
+ENTRYPOINT ["python", "sql_core.py", "logfile.log"]
 EXPOSE 5050
 #sudo docker run -itd --rm -p 5050:5050 -v $(pwd):/opt/app sql
