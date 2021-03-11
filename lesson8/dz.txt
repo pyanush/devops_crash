@@ -1,0 +1,16 @@
+Посилання на запис заняття: https://softserveinc.zoom.us/rec/share/yslXgd7qYD2jHEaa3booRbOHwmZT2PJN59HE6J-5nAYfKSCkYQXmCEm6HZSFjLk.nh-dOta1bG30mYOB
+
+Домашнє завдання: написати скріпт, що буде парсити логи і результати записувати у базу даних за допомого SQLAlchemy (Core та ORM).
+
+Про теорію реляціних БД можна почитати на Вікіпедії (для загального розуміння):
+https://en.wikipedia.org/wiki/Relational_database (англійською)
+https://en.wikipedia.org/wiki/Relational_database (українською, варто переходити по додаткових посиланнях)
+
+Про SQL:
+https://www.w3schools.com/sql/
+
+Про SQLAlchemy:
+https://www.tutorialspoint.com/sqlalchemy/index.htm
+
+Будь-які питання обов'язково пишіть у чат)
+Успіхів вам, спокійного завершення робочого тижня та вдалих і продуктивних вихідних)
