@@ -34,16 +34,16 @@ for entry in file:
 
         datetime_obj = datetime.datetime.strptime(
             datetime_str, '%b %d %H:%M:%S %Y')
-        logs_entries.append({"hostname": line.group(3), "ip_address": line.group(
-            6), "date_time": datetime_obj, "message": line.group(5)})
+
         log = LogEntry(hostname=line.group(3), ip_address=line.group(6),
                        date_time=datetime_obj, message=line.group(5))
-        session.add(log)
+        logs_entries.append(log)
+        # session.add(log)
 
 session.commit()
 # Bulk save:
-# session.bulk_save_objects(logs_entries)
-# session.commit()
+session.bulk_save_objects(logs_entries)
+session.commit()
 
 session.close()
 file.close()
