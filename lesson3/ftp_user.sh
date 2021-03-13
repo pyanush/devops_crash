@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-LOG_F="tmp/sftp-server-setup_"`date "+%F-%T"`".Log"
+LOG_F="/tmp/sftp-server-setup_"`date "+%F-%T"`".Log"
 exec &> >(tee "${LOG_F}")
 echo "Logging setup to ${LOG_F}"
 echo uname -a
@@ -11,7 +11,7 @@ echo
 
 #Function for changing config
 change_config () {
-    grep -g "^$1" /etc/vstpd/vstpd.conf && sudo sed -i "s/^$1.*/$1=$2/" /etc/vstpd/vstpd.conf || echo "$1=$2" | sudo tee -a /etc/vstpd/vstpd.conf
+    grep -G "^$1" /etc/vsftpd/vsftpd.conf && sudo sed -i "s/^$1.*/$1=$2/" /etc/vsftpd/vsftpd.conf || echo "$1=$2" | sudo tee -a /etc/vsftpd/vsftpd.conf
 }
 
 echo "Adding user with passwordless access to sudo"
