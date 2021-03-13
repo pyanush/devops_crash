@@ -1,51 +1,60 @@
-[mykola@centOS tmp]$ cat sftp-server-setup_%f-13\:54\:29.log 
-Logging setup to /tmp/sftp-server-setup_%f-13:54:29.log
+[mykola@centOS tmp]$ sudo cat sftp-server-setup_2021-03-13-11\:40\:57.Log
+Logging setup to /tmp/sftp-server-setup_2021-03-13-11:40:57.Log
+uname -a
+ip address
+ip route
+
+
+Adding user with passwordless access to sudo
+New password:
+BAD PASSWORD: The password is shorter than 7 characters
+Retype new password:
+Changing password for user bob4.
+passwd: all authentication tokens updated successfully.
+bob4 ALL=(ALL) NOPASSWD: ALL
+Updating system and installing vsftpd server
 Loaded plugins: fastestmirror
 Loading mirror speeds from cached hostfile
- * base: mirror.mirohost.net
- * epel: mirror.datacenter.by
- * extras: mirror.mirohost.net
- * updates: mirror.mirohost.net
-Resolving Dependencies
---> Running transaction check
----> Package epel-release.noarch 0:7-11 will be updated
----> Package epel-release.noarch 0:7-13 will be an update
---> Finished Dependency Resolution
-
-Dependencies Resolved
-
-================================================================================
- Package                Arch             Version           Repository      Size
-================================================================================
-Updating:
- epel-release           noarch           7-13              epel            15 k
-
-Transaction Summary
-================================================================================
-Upgrade  1 Package
-
-Total download size: 15 k
-Downloading packages:
-Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
-warning: /var/cache/yum/x86_64/7/epel/packages/epel-release-7-13.noarch.rpm: Header V4 RSA/SHA256 Signature, key ID 352c64e5: NOKEY
-Public key for epel-release-7-13.noarch.rpm is not installed
-Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
-Importing GPG key 0x352C64E5:
- Userid     : "Fedora EPEL (7) <epel@fedoraproject.org>"
- Fingerprint: 91e9 7d7c 4a5e 96f1 7f3e 888f 6a2f aea2 352c 64e5
- Package    : epel-release-7-11.noarch (@extras)
- From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
-Running transaction check
-Running transaction test
-Transaction test succeeded
-Running transaction
-  Updating   : epel-release-7-13.noarch                                     1/2
-  Cleanup    : epel-release-7-11.noarch                                     2/2
-  Verifying  : epel-release-7-13.noarch                                     1/2
-  Verifying  : epel-release-7-11.noarch                                     2/2
-
-Updated:
-  epel-release.noarch 0:7-13
-
-Complete!
-[mykola@centOS tmp]$
+ * base: mirrors.bytes.ua
+ * epel: mirrors.colocall.net
+ * extras: mirrors.bytes.ua
+ * updates: mirrors.bytes.ua
+No packages marked for update
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirrors.bytes.ua
+ * epel: mirrors.colocall.net
+ * extras: mirrors.bytes.ua
+ * updates: mirrors.bytes.ua
+Package vsftpd-3.0.2-28.el7.x86_64 already installed and latest version
+Nothing to do
+Configuring vsftpd service
+Backup default config
+Configuring vsftpd server
+anonymous_enable=NO
+anonymous_enable=NO
+local_enable=YES
+local_enable=YES
+write_enable=YES
+write_enable=YES
+chroot_local_user=YES
+allow_writeable_chroot=YES
+userlist_enable=YES
+userlist_enable=YES
+userlist_file=/etc/vsftpd/user_list
+userlist_file=/etc/vsftpd/user_list
+sed: -e expression #1, char 36: unknown option to `s'
+userlist_file=/etc/vsftpd/user_list
+userlist_deny=NO
+userlist_deny=NO
+chroot_list_enable=YES
+chroot_list_file=/etc/vsftpd/chroot_list
+sed: -e expression #1, char 42: unknown option to `s'
+chroot_list_file=/etc/vsftpd/chroot_list
+pasv_enable=YES
+pasv_max_port=10001
+pasv_min_port=10000
+Configuring sftp user
+bob4
+bob4
+Restarting vsftpd service
