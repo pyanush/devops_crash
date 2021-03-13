@@ -11,7 +11,7 @@ echo
 
 #Function for changing config
 change_config () {
-    grep -G "^$1" /etc/vsftpd/vsftpd.conf && sudo sed -i "s/^$1.*/$1=$2/" /etc/vsftpd/vsftpd.conf || echo "$1=$2" | sudo tee -a /etc/vsftpd/vsftpd.conf
+    grep -G "^$1" /etc/vsftpd/vsftpd.conf && sudo sed -i 's/^$1.*/$1=$2/' /etc/vsftpd/vsftpd.conf || echo "$1=$2" | sudo tee -a /etc/vsftpd/vsftpd.conf
 }
 
 echo "Adding user with passwordless access to sudo"

@@ -1,0 +1,63 @@
+[root@localhost tmp]# cat sftp-server-setup_2021-03-13-21\:40\:59.Log
+Logging setup to /tmp/sftp-server-setup_2021-03-13-21:40:59.Log
+uname -a
+ip address
+ip route
+
+
+Adding user with passwordless access to sudo
+New password:
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password:
+Changing password for user mykola.
+passwd: all authentication tokens updated successfully.
+mykola ALL=(ALL) NOPASSWD: ALL
+Updating system and installing vsftpd server
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: centos.wielun.net
+ * epel: repo.fedora.md
+ * extras: centos.wielun.net
+ * updates: centos.wielun.net
+No packages marked for update
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: centos.wielun.net
+ * epel: mirrors.colocall.net
+ * extras: centos.wielun.net
+ * updates: centos.wielun.net
+Resolving Dependencies
+--> Running transaction check
+---> Package vsftpd.x86_64 0:3.0.2-28.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package          Arch             Version                 Repository      Size
+================================================================================
+Installing:
+ vsftpd           x86_64           3.0.2-28.el7            base           172 k
+
+Transaction Summary
+================================================================================
+Install  1 Package
+
+Total download size: 172 k
+Installed size: 353 k
+Downloading packages:
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : vsftpd-3.0.2-28.el7.x86_64                                   1/1
+  Verifying  : vsftpd-3.0.2-28.el7.x86_64                                   1/1
+
+Installed:
+  vsftpd.x86_64 0:3.0.2-28.el7
+
+Complete!
+Configuring vsftpd service
+Created symlink from /etc/systemd/system/multi-user.target.wants/vsftpd.service to /usr/lib/systemd/system/vsftpd.service.
+Disable firevalld service
+Failed to stop firevalld.service: Unit firevalld.service not loaded.
