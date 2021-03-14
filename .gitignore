@@ -27,27 +27,31 @@ override.tf.json
 
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
 # example: *tfplan*
-nash_sftp.txt
-nashScript.txt
+nash_sftp-server+docker.txt
+nash-Script.txt
+nashSkript.txt
 access_log_formatedOrig.xlsx
 access_logsOrig.xlsx
-DevOps - 7 урок.pdf
+/lesson7/DevOps - 7 урок.pdf
 dz.txt
 
 dz na 02.03.2021.txt
-
+/lesson7/DevOps-7 ypok.pdf
 dz and server.txt
-DevOps - 4 урок.pdf
-
-DevOps - 3 урок.pdf
+/lesson4/DevOps-4 урок.pdf
+/lesson5/DevOps-5 ypok.pdf
+/lesson6/DevOps-6 ypok.pdf
+/lesson3/DevOps-3 урок.pdf
 теорія_на_наступний_урок_потрібно_знати.docx
+/lesson8/DevOps-8 ypok.pdf
+/lesson2/DevOps-2 урок.pdf
+/lesson9/DevOps-9 ypok.pdf
 
-DevOps - 2 урок.pdf
-
-DevOps - 1 урок.pdf
+/lesson1/DevOps-1 урок.pdf
 
 .idea
 .vscode
 .vagrant
 vagrant
 sshkey
+Vagrantfile
