@@ -1,8 +1,10 @@
 import datetime
+from os import access
 import re
-import pandas as pd
+from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, DateTime, engine
+from sqlalchemy.engine import result
 
-inputFile = open ("lesson7/logfile.log", 'r',encoding='utf-8')
+inputFile = open ("lesson8/logfile.log", 'r',encoding='utf-8')
 
 log_entries = []
 
@@ -17,8 +19,15 @@ for entry in inputFile:
 
 inputFile.close ()
 
-# Excel file:
-#df = pd.DataFrame (log_entries)
-#df["hostname"].mask(df["hostname"].duplicated(), inplace=True)
-#df["ip_address"].mask(df["ip_address"].duplicated(), inplace=True)
-#df.to_excel("lesson7/formatt.xlsx")
+print(log_entries)
+
+meta = MetaData()
+access_logs = Table('access_logs', meta, Column('id', Integer, primary_key= True), Column('hostname', String), Column('ip_address', String), Column('date_time', DateTime), Column('message', String))
+meta.create_all(engine)
+
+logs_entries = []
+conn = engine.connect()
+ins = access_logs.insert().values(hostname = line.group(3), ip_address = line.group(6), date_time = datetime_obj, message = line.group(5))
+result = conn.execute(access_logs.insert(None), log_entries)
+engine = create_engine('sqlite:///access.db',echo = True)
+conn.close()
