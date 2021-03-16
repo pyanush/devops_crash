@@ -27,7 +27,7 @@ for entry in inputFile:
 inputFile.close ()
 print(type(log_entries))
 
-'''
+
 engine = create_engine('sqlite:///lesson8/access_logs.db', echo = True)
 Base = declarative_base()
 
@@ -45,10 +45,9 @@ Session = sessionmaker(bind = engine)
 session = Session()  
 log = LogEntry(hostname = 'hostname', ip_address = 'ip address', date_time = datetime_obj, message = 'who is')
 session.add(log)
-
-#logs_entries = log_entries
-session.add_all([log_entries])
+session.add_all(log_entries)
+logs_entries = log_entries
+session.bulk_save_objects(logs_entries)
 session.commit()
 
 session.close()
-'''
