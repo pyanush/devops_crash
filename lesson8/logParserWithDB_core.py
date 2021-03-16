@@ -1,5 +1,4 @@
 import datetime
-from os import access
 import re
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, DateTime, engine
 from sqlalchemy.engine import result
@@ -32,11 +31,6 @@ access_logs = Table(
     Column('message', String),
     )
 meta.create_all(engine)
-
 conn = engine.connect()
-ins = access_logs.insert().values(hostname = 'hosname', ip_address = 'ip address', date_time = datetime_obj, message = 'who is')
-conn = engine.connect()
-logs_entries = log_entries
-result = conn.execute(access_logs.insert(None), logs_entries)
-
+result = conn.execute(access_logs.insert(None), log_entries)
 conn.close()
