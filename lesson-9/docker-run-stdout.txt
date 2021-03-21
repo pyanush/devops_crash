@@ -1,0 +1,41 @@
+[mpoli@localhost workdir]$ docker run --rm --name get-started -v /home/mpoli/workdir:/opt/app get-started
+2021-03-21 12:26:30,203 INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+2021-03-21 12:26:30,203 INFO sqlalchemy.engine.base.Engine ()
+2021-03-21 12:26:30,203 INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+2021-03-21 12:26:30,203 INFO sqlalchemy.engine.base.Engine ()
+2021-03-21 12:26:30,204 INFO sqlalchemy.engine.base.Engine PRAGMA main.table_info("access_logs")
+2021-03-21 12:26:30,204 INFO sqlalchemy.engine.base.Engine ()
+2021-03-21 12:26:30,204 INFO sqlalchemy.engine.base.Engine PRAGMA temp.table_info("access_logs")
+2021-03-21 12:26:30,204 INFO sqlalchemy.engine.base.Engine ()
+2021-03-21 12:26:30,205 INFO sqlalchemy.engine.base.Engine 
+CREATE TABLE access_logs (
+	id INTEGER NOT NULL, 
+	hostname VARCHAR, 
+	ip_address VARCHAR, 
+	date_time DATETIME, 
+	message VARCHAR, 
+	PRIMARY KEY (id)
+)
+
+
+2021-03-21 12:26:30,205 INFO sqlalchemy.engine.base.Engine ()
+2021-03-21 12:26:30,233 INFO sqlalchemy.engine.base.Engine COMMIT
+2021-03-21 12:26:30,843 INFO sqlalchemy.engine.base.Engine INSERT INTO access_logs (hostname, ip_address, date_time, message) VALUES (?, ?, ?, ?)
+2021-03-21 12:26:30,843 INFO sqlalchemy.engine.base.Engine (('vmi526857', '0.0.0.0', '2021-02-15 13:01:24.000000', 'Server listening on 0.0.0.0 port 22.'), ('vmi526857', '91.194.90.179', '2021-02-15 13:01:31.000000', 'Accepted password for root from 91.194.90.179 port 41006 ssh2'), ('vmi526857', '91.194.90.179', '2021-02-15 13:01:31.000000', 'Received disconnect from 91.194.90.179 port 41006:11: PECL/ssh2 (http://pecl.php.net/packages/ssh2)'), ('vmi526857', '91.194.90.179', '2021-02-15 13:01:31.000000', 'Disconnected from user root 91.194.90.179 port 41006'), ('vmi526857', '218.92.0.172', '2021-02-15 13:01:42.000000', 'pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=218.92.0.172  user=root'), ('vmi526857', '218.92.0.172', '2021-02-15 13:01:45.000000', 'Failed password for root from 218.92.0.172 port 39883 ssh2'), ('vmi526857', '218.92.0.172', '2021-02-15 13:01:51.000000', 'message repeated 2 times: [ Failed password for root from 218.92.0.172 port 39883 ssh2]'), ('vmi526857', '218.92.0.172', '2021-02-15 13:01:55.000000', 'Failed password for root from 218.92.0.172 port 39883 ssh2')  ... displaying 10 of 133743 total bound parameter sets ...  ('vmi526857', '195.200.245.18', '2021-03-02 11:34:24.000000', 'Accepted publickey for oleksii from 195.200.245.18 port 46594 ssh2: RSA SHA256:9Uq9wK/I5qiL/5yZKEOVYNRPfx96WpGs5U5BhgviMks'), ('vmi526857', '195.200.245.18', '2021-03-02 11:34:25.000000', 'Starting session: shell on pts/0 for oleksii from 195.200.245.18 port 46594 id 0'))
+2021-03-21 12:26:31,036 INFO sqlalchemy.engine.base.Engine COMMIT
+[mpoli@localhost workdir]$ ll
+total 36768
+-rw-r--r--. 1 root  root  19509248 Mar 21 14:26 access-core.db
+-rw-rw-r--. 1 mpoli mpoli     1162 Mar 21 13:37 core.py
+-rw-rw-r--. 1 mpoli mpoli      174 Mar 21 14:00 Dockerfile
+-rw-rw-r--. 1 mpoli mpoli 18126150 Mar 16 20:40 logfile.log
+-rw-rw-r--. 1 mpoli mpoli      178 Mar 17 22:17 requirements.txt
+[mpoli@localhost workdir]$ scp ./access-core.db mpoli@192.168.1.100:~/workdir/devops-crash/lesson-9
+The authenticity of host '192.168.1.100 (192.168.1.100)' can't be established.
+ECDSA key fingerprint is SHA256:
+ECDSA key fingerprint is MD5:
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '192.168.1.100' (ECDSA) to the list of known hosts.
+mpoli@192.168.1.100's password: 
+access-core.db                                                                                                                                         100%   19MB  62.6MB/s   00:00    
+[mpoli@localhost workdir]$

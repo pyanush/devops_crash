@@ -1,0 +1,84 @@
+[mpoli@localhost workdir]$ docker build -t get-started .
+Sending build context to Docker daemon  18.13MB
+Step 1/7 : FROM python:3.8.5
+3.8.5: Pulling from library/python
+57df1a1f1ad8: Pull complete 
+71e126169501: Pull complete 
+1af28a55c3f3: Pull complete 
+03f1c9932170: Pull complete 
+65b3db15f518: Pull complete 
+3e3b8947ed83: Pull complete 
+a4850b8bdbb7: Pull complete 
+416533994968: Pull complete 
+1b580f9ce4ce: Pull complete 
+Digest: sha256:e9b7e3b4e9569808066c5901b8a9ad315a9f14ae8d3949ece22ae339fff2cad0
+Status: Downloaded newer image for python:3.8.5
+ ---> 28a4c88cdbbf
+Step 2/7 : RUN mkdir -p /opt/app/
+ ---> Running in 3a415406e967
+Removing intermediate container 3a415406e967
+ ---> d6249ff7e1b5
+Step 3/7 : WORKDIR /opt/app/
+ ---> Running in d2e0875143f5
+Removing intermediate container d2e0875143f5
+ ---> 14013d9529c7
+Step 4/7 : COPY . /opt/app/
+ ---> f4a8eefc50e1
+Step 5/7 : RUN pip3 install --upgrade pip
+ ---> Running in 6d7df7570eac
+Collecting pip
+  Downloading pip-21.0.1-py3-none-any.whl (1.5 MB)
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 20.2.3
+    Uninstalling pip-20.2.3:
+      Successfully uninstalled pip-20.2.3
+Successfully installed pip-21.0.1
+Removing intermediate container 6d7df7570eac
+ ---> fa9ac7662aed
+Step 6/7 : RUN pip3 install -r requirements.txt
+ ---> Running in 469d75136264
+Collecting DateTime==4.3
+  Downloading DateTime-4.3-py2.py3-none-any.whl (60 kB)
+Collecting et-xmlfile==1.0.1
+  Downloading et_xmlfile-1.0.1.tar.gz (8.4 kB)
+Collecting jdcal==1.4.1
+  Downloading jdcal-1.4.1-py2.py3-none-any.whl (9.5 kB)
+Collecting numpy==1.20.1
+  Downloading numpy-1.20.1-cp38-cp38-manylinux2010_x86_64.whl (15.4 MB)
+Collecting openpyxl==3.0.6
+  Downloading openpyxl-3.0.6-py2.py3-none-any.whl (242 kB)
+Collecting pandas==1.2.3
+  Downloading pandas-1.2.3-cp38-cp38-manylinux1_x86_64.whl (9.7 MB)
+Collecting python-dateutil==2.8.1
+  Downloading python_dateutil-2.8.1-py2.py3-none-any.whl (227 kB)
+Collecting pytz==2021.1
+  Downloading pytz-2021.1-py2.py3-none-any.whl (510 kB)
+Collecting six==1.15.0
+  Downloading six-1.15.0-py2.py3-none-any.whl (10 kB)
+Collecting SQLAlchemy==1.3.23
+  Downloading SQLAlchemy-1.3.23-cp38-cp38-manylinux2010_x86_64.whl (1.3 MB)
+Collecting zope.interface==5.2.0
+  Downloading zope.interface-5.2.0-cp38-cp38-manylinux2010_x86_64.whl (244 kB)
+Requirement already satisfied: setuptools in /usr/local/lib/python3.8/site-packages (from zope.interface==5.2.0->-r requirements.txt (line 11)) (50.3.0)
+Building wheels for collected packages: et-xmlfile
+  Building wheel for et-xmlfile (setup.py): started
+  Building wheel for et-xmlfile (setup.py): finished with status 'done'
+  Created wheel for et-xmlfile: filename=et_xmlfile-1.0.1-py3-none-any.whl size=8917 sha256=a76d422f2a6ca902c0d10d1ac8fe71b670dd16ab9ef4ff70f7cba95e71aea5ce
+  Stored in directory: /root/.cache/pip/wheels/6e/df/38/abda47b884e3e25f9f9b6430e5ce44c47670758a50c0c51759
+Successfully built et-xmlfile
+Installing collected packages: six, zope.interface, pytz, python-dateutil, numpy, jdcal, et-xmlfile, SQLAlchemy, pandas, openpyxl, DateTime
+Successfully installed DateTime-4.3 SQLAlchemy-1.3.23 et-xmlfile-1.0.1 jdcal-1.4.1 numpy-1.20.1 openpyxl-3.0.6 pandas-1.2.3 python-dateutil-2.8.1 pytz-2021.1 six-1.15.0 zope.interface-5.2.0
+Removing intermediate container 469d75136264
+ ---> 65f4a4aa23dd
+Step 7/7 : CMD ["python3","core.py"]
+ ---> Running in 2ac19cc4d8fc
+Removing intermediate container 2ac19cc4d8fc
+ ---> 0686bde703c7
+Successfully built 0686bde703c7
+Successfully tagged get-started:latest
+[mpoli@localhost workdir]$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED          SIZE
+get-started   latest    0686bde703c7   20 seconds ago   1.06GB
+python        3.8.5     28a4c88cdbbf   6 months ago     882MB
+[mpoli@localhost workdir]$
