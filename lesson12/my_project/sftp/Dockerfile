@@ -1,0 +1,2 @@
+FROM atmoz/sftp:alpine
+

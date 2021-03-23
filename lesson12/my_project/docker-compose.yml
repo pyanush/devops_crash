@@ -1,0 +1,50 @@
+version: '2.1'
+
+services:
+  sshpass:
+    build: sshpass/
+    volumes:
+        - /home/val13/lesson12/my_project/logs:/logs
+    healthcheck:
+       test:  ["CMD-SHELL", "test -f /logs/logfile.log"]
+       interval: 3s
+       timeout: 5s
+       retries: 50
+       start_period: 1s
+ 
+  
+  sftp:
+    build: sftp/
+    depends_on:
+      sshpass:
+        condition: service_healthy
+    volumes:
+        - /home/val13/lesson12/my_project/result:/home/foo/upload
+    ports:
+        - "223:22"
+    command: foo:pass:1001
+    
+  python:
+    build: python/
+    depends_on:
+      sshpass:
+        condition: service_healthy
+    volumes:
+        - /home/val13/lesson12/my_project/logs:/app/logs/
+        - /home/val13/lesson12/my_project/result:/app/result/
+    healthcheck:
+       test:  ["CMD-SHELL", "test -f /app/result/access.db"]
+       interval: 3s
+       timeout: 5s
+       retries: 50
+       start_period: 1s
+
+  nginx:
+    build: nginx/
+    ports:
+        - "883:80"
+    depends_on:
+      python:
+        condition: service_healthy
+    volumes: 
+       - /home/val13/lesson12/my_project/html:/opt/app/
