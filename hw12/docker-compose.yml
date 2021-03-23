@@ -1,22 +1,22 @@
 version: "2.3"
 services:
    sftp:
-     build: /hw12/ftp
+     build: /home/hw12/ftp
      container_name: sftp
      ports:
          - "223:22"
      volumes: 
-       - /hw12/ftp:/opt/data
-       - /hw12/ftp:/opt/app
+       - /home/hw12/ftp:/opt/data
+       - /home/hw12/ftp:/opt/app
      networks:
        - devops_network     
 
    python:
-     build: /hw12/python 
+     build: /home/hw12/python 
      container_name: python
      volumes: 
-       - /hw12/ftp:/opt/data
-       - /hw12/ftp:/opt/app
+       - /home/hw12/ftp:/opt/data
+       - /home/hw12/ftp:/opt/app
      healthcheck:
        test: ["CMD", "python", "sql_orm.py"]
        interval: 3s
@@ -25,11 +25,11 @@ services:
        start_period: 1s
 
    nginx:
-     build: - /hw12/nginx
+     build: /home/hw12/nginx
      ports:
        - "80:883"
      volumes:
-       - - /hw12/ftp:/opt/app
+       - /home/hw12/ftp:/opt/app
      depends_on:
        redis:
          condition: service_healthy
@@ -38,7 +38,7 @@ services:
    redis:
      image: redis
      volumes:
-       - /hw12/nginx:/opt/data
+       - /home/hw12/nginx:/opt/data
      healthcheck:
        test: ["CMD", "redis-cli", "-v"]
        interval: 3s
@@ -59,3 +59,4 @@ networks:
 # # #       - app
 # # #     ports: 
 # # #       - 8989:8989
+
