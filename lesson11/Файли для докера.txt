@@ -1,3 +1,19 @@
+Для виконання команд докера без судо:
+> sudo groupadd docker
+> sudo usermod -aG docker mykola
+Перезагрузити сервер!!!
+для входу на контейнер: docker exec -it   або  -g id-cont /bin/bash - щоб мати консоль
+для підключення волюма:   docker run --name redis -v /home/mykola/redis/:/data/ -d redis
+для видалення сонтейнерів:  sudo rm -rf /var/lib/containerd
+			    sudo rm -rf /var/lib/docker
+ 
+
+Для запуска контейнера :
+docker -it -p 1234:8080 tomcat
+docker -d -p 1234:80 nginx
+
+
+
 FROM alpine:3.11.5
 
 ENV NGINX_VERSION 1.16.1-r6

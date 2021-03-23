@@ -1,0 +1,23 @@
+version: "2.3"
+services:
+   nginx:
+     build: /root/docker/nginx4
+     ports:
+       - "80:80"
+     volumes:
+       - /root/docker/redis:/data
+     depends_on:
+       redis:
+         condition: service_healthy
+     environment:
+       - ENV=development
+   redis:
+     image: redis
+     volumes:
+       - /root/docker/redis:/data
+     healthcheck:
+       test: ["CMD", "redis-cli", "-v"]
+       interval: 3s
+       timeout: 5s
+       retries: 5
+       start_period: 1s
