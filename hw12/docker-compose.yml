@@ -1,22 +1,22 @@
 version: "2.3"
 services:
    sftp:
-     build: /home/pasha/FPN/hw12
+     build: /hw12/ftp
      container_name: sftp
      ports:
          - "223:22"
      volumes: 
-       - /home/pasha/FPN/hw2:/opt/data
-       - /home/pasha/FPN/hw2:/opt/app
+       - /hw12/ftp:/opt/data
+       - /hw12/ftp:/opt/app
      networks:
        - devops_network     
 
    python:
-     build: /home/pasha/FPN/lesson9 
+     build: /hw12/python 
      container_name: python
      volumes: 
-       - /home/pasha/FPN/ls11:/data
-       - /home/pasha/FPN/ls11:/app
+       - /hw12/ftp:/opt/data
+       - /hw12/ftp:/opt/app
      healthcheck:
        test: ["CMD", "python", "sql_orm.py"]
        interval: 3s
@@ -25,11 +25,11 @@ services:
        start_period: 1s
 
    nginx:
-     build: /home/pasha/FPN/ls11
+     build: - /hw12/nginx
      ports:
        - "80:883"
      volumes:
-       - /home/pasha/FPN/ls11:/data
+       - - /hw12/ftp:/opt/app
      depends_on:
        redis:
          condition: service_healthy
@@ -38,7 +38,7 @@ services:
    redis:
      image: redis
      volumes:
-       - /home/pasha/FPN//ls10:/opt/data
+       - /hw12/nginx:/opt/data
      healthcheck:
        test: ["CMD", "redis-cli", "-v"]
        interval: 3s
@@ -50,55 +50,6 @@ networks:
   devops_network:
     driver: bridge
 
-
-# # version: "2.3"
-# # services:
-# #    nginx:
-# #      build: /home/ls11
-# #      ports:
-# #        - "80:80"
-# #      volumes:
-# #        - /home/ls11:/data
-# #      depends_on:
-# #        redis:
-# #          condition: service_healthy
-# #      environment:
-# #        - ENV=development
-# #    redis:
-# #      image: redis
-# #      volumes:
-# #        - /home/ls10:/data
-# #      healthcheck:
-# #        test: ["CMD", "redis-cli", "-v"]
-# #        interval: 3s
-# #        timeout: 5s
-# #        retries: 5
-# #        start_period: 1s
-
-# # # version: '3'
-# # # services:
-# # #   db:
-# # #     image: postgres:11.4-alpine
-# # #     container_name: postgres
-# # #     ports:
-# # #       - 5432:5432
-# # #     volumes: 
-# # #       - ./pg_data:/var/lib/postgresql/data/pg_data
-# # #     environment: 
-# # #       POSTGRES_PASSWORD: 123
-# # #       POSTGRES_DB: docker_test
-# # #       PGDATA: /var/lib/postgresql/data/pgdata
-# # #     restart: always
-# # #   app:
-# # #     image: drucoder/web-server
-# # #     container_name: application
-# # #     ports: 
-# # #       - 3000:3000
-# # #     environment:
-# # #       POSTGRES_HOST: db
-# # #     restart: always
-# # #     links: 
-# # #       - db
 # # #   nginx:
 # # #     image: nginx:1.17.2-alpine
 # # #     container_name: nginx
