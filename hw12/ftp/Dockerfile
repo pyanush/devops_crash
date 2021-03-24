@@ -31,4 +31,3 @@ ENTRYPOINT ["/bin/bash", "/opt/app/run.sh"]
 CMD ["/bin/bash", "/opt/app/start.sh"]
 
 #sudo docker run -itd --rm -p 223:223 -v $(pwd):/opt/app ftp
-#https://medium.com/hackernoon/docker-tutorial-getting-started-with-python-redis-and-nginx-81a9d740d091
