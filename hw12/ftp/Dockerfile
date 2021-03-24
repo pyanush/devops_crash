@@ -1,17 +1,18 @@
-FROM ubuntu:focal
+FROM ubuntu:18.04
 RUN mkdir /opt/app
+RUN mkdir /opt/data
 WORKDIR /opt/app
 COPY run.sh /opt/app
 COPY vsftpd.conf /etc/vsftpd/vsftpd.conf
 VOLUME /opt/app
+EXPOSE 223
 
-# RUN apt-get update -y && \
-# apt-get install vsftpd -y && \
-# apt-get install ftp -y && \
-# apt-get install openssh-server sudo -y && \
-# apt-get install sshpass -y && \
-# apt-get install systemd -y && \
-# apt-get install firewalld -y
+RUN apt-get update -y && \
+apt-get install vsftpd -y && \
+apt-get install ftp -y && \
+apt-get install sshpass -y && \
+apt-get install systemd -y && \
+apt-get install firewalld -y
 
 RUN apt-get update && apt-get install -y \
 	openssh-server \
@@ -25,8 +26,9 @@ RUN apt-get update && apt-get install -y \
 
 ADD start.sh /opt/app/start.sh
 
+ENTRYPOINT ["/bin/bash", "/opt/app/run.sh"]
+
 CMD ["/bin/bash", "/opt/app/start.sh"]
 
-EXPOSE 223
-ENTRYPOINT ["/bin/bash", "run.sh"]
 #sudo docker run -itd --rm -p 223:223 -v $(pwd):/opt/app ftp
+#https://medium.com/hackernoon/docker-tutorial-getting-started-with-python-redis-and-nginx-81a9d740d091

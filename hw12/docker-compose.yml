@@ -9,7 +9,13 @@ services:
        - /home/hw12/ftp:/opt/data
        - /home/hw12/ftp:/opt/app
      networks:
-       - devops_network     
+       - devops_network
+     healthcheck:
+       test: ["CMD", "sftp", "testuser@207.244.229.74:/opt/testuser/logfile.log"]
+       interval: 3s
+       timeout: 5s
+       retries: 5
+       start_period: 1s
 
    python:
      build: /home/hw12/python 
@@ -17,6 +23,11 @@ services:
      volumes: 
        - /home/hw12/ftp:/opt/data
        - /home/hw12/ftp:/opt/app
+     depends_on:
+       redis:
+         condition: service_healthy
+     environment:
+       - ENV=development
      healthcheck:
        test: ["CMD", "python", "sql_orm.py"]
        interval: 3s
@@ -35,12 +46,19 @@ services:
          condition: service_healthy
      environment:
        - ENV=development
+     healthcheck:
+       test: ["CMD", "ls", "-lsa"]
+       interval: 3s
+       timeout: 5s
+       retries: 5
+       start_period: 1s
+
    redis:
      image: redis
      volumes:
        - /home/hw12/nginx:/opt/data
      healthcheck:
-       test: ["CMD", "redis-cli", "-v"]
+       test: ["CMD", "pwd"]
        interval: 3s
        timeout: 5s
        retries: 5
@@ -49,14 +67,3 @@ services:
 networks:
   devops_network:
     driver: bridge
-
-# # #   nginx:
-# # #     image: nginx:1.17.2-alpine
-# # #     container_name: nginx
-# # #     volumes: 
-# # #       - ./dafault.conf:/etc/nginx/conf.d/default.conf
-# # #     links:
-# # #       - app
-# # #     ports: 
-# # #       - 8989:8989
-

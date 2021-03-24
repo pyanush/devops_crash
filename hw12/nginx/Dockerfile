@@ -1,4 +1,4 @@
-FROM debian
+FROM debian:buster-slim
 
 COPY . /opt/
 
