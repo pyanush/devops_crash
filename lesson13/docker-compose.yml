@@ -1,15 +1,15 @@
 version: "2.3"
 services:
    sftp:
-     build: /home/testuser/MyProject/lesson  
+     build: /home/testuser/MyProject/lesson
      volumes:
         - /home/testuser/MyProject/lesson/log:/data
      ports:
         - "223:22"
-    python:
+   python:
      build: /home/testuser/MyProject/lesson9
      volumes:
-        - /home/testuser/MyProject/lesson/result:/data
+        - /home/testuser/MyProject/lesson9:/data
      healthcheck:
           test: ["CMD", "test", "-e", "/data/access_logs.db" ]
           interval: 3s
@@ -25,6 +25,7 @@ services:
          condition: service_healthy
      environment:
        - ENV=development
+
 
 
 
