@@ -1,0 +1,131 @@
+Logging setup to docker_2021-03-25-15:10:15.log
+The Docker Engine you're using is running in swarm mode.
+
+Compose does not use swarm mode to deploy services to multiple nodes in a swarm. All containers will be scheduled on the current node.
+
+To deploy your application across the swarm, use `docker stack deploy`.
+
+Creating network "hw12_default" with the default driver
+Creating network "hw12_devops_network" with driver "bridge"
+Building nginx
+Step 1/6 : FROM debian:buster-slim
+ ---> 5b395270ee77
+Step 2/6 : COPY . /opt/
+ ---> Using cache
+ ---> 4315a0f5e4c6
+Step 3/6 : RUN apt-get update && apt-get install -y   nginx   && rm -rf /var/lib/apt/lists/*
+ ---> Using cache
+ ---> d24e8e782a33
+Step 4/6 : COPY custom.conf /etc/nginx/conf.d/
+ ---> Using cache
+ ---> 9efa759c1db4
+Step 5/6 : EXPOSE 80
+ ---> Using cache
+ ---> c7ccdce4b17a
+Step 6/6 : CMD ["nginx","-g","daemon off;"]
+ ---> Using cache
+ ---> 3cc959c10c79
+
+Successfully built 3cc959c10c79
+Successfully tagged hw12_nginx:latest
+Building python
+Step 1/9 : FROM python:3.8-slim
+ ---> 8671a55eb48a
+Step 2/9 : EXPOSE 5050
+ ---> Using cache
+ ---> 12fee99cb4f8
+Step 3/9 : WORKDIR /opt/app
+ ---> Using cache
+ ---> 9509430c14ef
+Step 4/9 : VOLUME /opt/app
+ ---> Using cache
+ ---> 9bc84ef8aea7
+Step 5/9 : COPY req.txt /opt/app
+ ---> Using cache
+ ---> 9996f8ec3348
+Step 6/9 : RUN pip install --upgrade pip && pip install -r req.txt
+ ---> Using cache
+ ---> cdce4623a07f
+Step 7/9 : COPY sql_orm.py /opt/app
+ ---> Using cache
+ ---> fc35905a907f
+Step 8/9 : COPY logfile.log /opt/app
+ ---> Using cache
+ ---> d26b4488c306
+Step 9/9 : ENTRYPOINT ["python", "sql_orm.py", "logfile.log"]
+ ---> Using cache
+ ---> 2a17ba52db28
+
+Successfully built 2a17ba52db28
+Successfully tagged hw12_python:latest
+Building sftp
+Step 1/14 : FROM ubuntu:18.04
+ ---> 329ed837d508
+Step 2/14 : RUN mkdir /opt/app
+ ---> Using cache
+ ---> 7bf7b282b2bb
+Step 3/14 : RUN mkdir /opt/data
+ ---> Using cache
+ ---> 7e4c52f653de
+Step 4/14 : WORKDIR /opt/app
+ ---> Using cache
+ ---> 8245a583dac9
+Step 5/14 : COPY run.sh /opt/app
+ ---> Using cache
+ ---> 82224e9274c6
+Step 6/14 : COPY vsftpd.conf /etc/vsftpd/vsftpd.conf
+ ---> Using cache
+ ---> 987b2116ce80
+Step 7/14 : COPY ssh_config /etc/ssh/sshd_config
+ ---> Using cache
+ ---> 35267161a844
+Step 8/14 : VOLUME /opt/app
+ ---> Using cache
+ ---> 0fa2638fe42b
+Step 9/14 : EXPOSE 223
+ ---> Using cache
+ ---> e4091f694cd2
+Step 10/14 : RUN apt-get update -y && apt-get install vsftpd -y && apt-get install ftp -y && apt-get install sshpass -y && apt-get install systemd -y && apt-get install firewalld -y
+ ---> Using cache
+ ---> 62ba1ff5c27d
+Step 11/14 : RUN apt-get update && apt-get install -y 	openssh-server 	mcrypt 	&& mkdir /var/run/sshd 	&& chmod 0755 /var/run/sshd 	&& mkdir -p /data/incoming 	&& apt-get clean 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 	&& mkdir /ssh/
+ ---> Using cache
+ ---> 024952ce0aa2
+Step 12/14 : ADD start.sh /opt/app/start.sh
+ ---> Using cache
+ ---> d41befd4c986
+Step 13/14 : ENTRYPOINT ["/bin/bash", "/opt/app/run.sh"]
+ ---> Using cache
+ ---> f826a0c632d8
+Step 14/14 : CMD ["/bin/bash", "/opt/app/start.sh"]
+ ---> Using cache
+ ---> 8a6af4e8bbbe
+
+Successfully built 8a6af4e8bbbe
+Successfully tagged hw12_sftp:latest
+Creating sftp ... 
+Creating hw12_redis_1 ... 
+Creating hw12_redis_1
+Creating sftp
+[1A[2KCreating hw12_redis_1 ... [32mdone[0m[1B[1A[2KCreating sftp ... [32mdone[0m[1BCreating hw12_nginx_1 ... 
+Creating hw12_nginx_1
+Creating python ... 
+Creating python
+[1A[2KCreating hw12_nginx_1 ... [32mdone[0m[1B[1A[2KCreating python ... [32mdone[0m[1B    Name                  Command               State               Ports           
+------------------------------------------------------------------------------------
+hw12_nginx_1   nginx -g daemon off;             Up       80/tcp, 0.0.0.0:80->883/tcp
+hw12_redis_1   docker-entrypoint.sh redis ...   Up       6379/tcp                   
+python         python sql_orm.py logfile.log    Exit 2                              
+sftp           /bin/bash /opt/app/run.sh  ...   Exit 0                              
+Stopping hw12_nginx_1 ... 
+Stopping hw12_redis_1 ... 
+[2A[2KStopping hw12_nginx_1 ... [32mdone[0m[2B[1A[2KStopping hw12_redis_1 ... [32mdone[0m[1BRemoving python       ... 
+Removing hw12_nginx_1 ... 
+Removing sftp         ... 
+Removing hw12_redis_1 ... 
+[4A[2KRemoving python       ... [32mdone[0m[4B[1A[2KRemoving hw12_redis_1 ... [32mdone[0m[1B[2A[2KRemoving sftp         ... [32mdone[0m[2B[3A[2KRemoving hw12_nginx_1 ... [32mdone[0m[3BRemoving network hw12_default
+Removing network hw12_devops_network
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS                       PORTS     NAMES
+30f4204d2e09   e4091f694cd2   "/bin/sh -c 'apt-get…"   7 minutes ago    Exited (100) 7 minutes ago             pedantic_morse
+3dabe549ef2c   a51621e679cb   "/bin/sh -c 'mkdir /…"   25 minutes ago   Exited (1) 25 minutes ago              amazing_hellman
+bc9561269809   a51621e679cb   "/bin/sh -c 'mkdir /…"   31 minutes ago   Exited (1) 31 minutes ago              heuristic_lovelace

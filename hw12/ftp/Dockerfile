@@ -3,7 +3,9 @@ RUN mkdir /opt/app
 RUN mkdir /opt/data
 WORKDIR /opt/app
 COPY run.sh /opt/app
+
 COPY vsftpd.conf /etc/vsftpd/vsftpd.conf
+COPY ssh_config /etc/ssh/sshd_config
 VOLUME /opt/app
 EXPOSE 223
 

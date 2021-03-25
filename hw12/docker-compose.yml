@@ -11,7 +11,7 @@ services:
      networks:
        - devops_network
      healthcheck:
-       test: ["CMD", "sftp", "testuser@207.244.229.74:/opt/testuser/logfile.log"]
+       test: ["CMD", "pwd"]
        interval: 3s
        timeout: 5s
        retries: 5

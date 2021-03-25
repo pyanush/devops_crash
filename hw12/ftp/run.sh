@@ -3,7 +3,8 @@
 # LOG_F="/tmp/sftp-server-setup_"`date "+%F-%T"`".log"
 # exec &> >(tee "${LOG_F}")
 # echo "Logging setup to ${LOG_F}"
-sshpass -p '*,<R#!$(2udw{Zgz' sftp testuser@207.244.229.74:/opt/testuser/logfile.log 
+python ssh.py
+#sshpass -p '*,<R#!$(2udw{Zgz' sftp testuser@207.244.229.74:/opt/testuser/logfile.log 
 
 # systemctl start firewalld
 # systemctl enable firewalld
