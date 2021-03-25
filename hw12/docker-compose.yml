@@ -18,11 +18,11 @@ services:
        start_period: 1s
 
    python:
-     build: /home/hw12/python 
+     build: ./python 
      container_name: python
      volumes: 
-       - /home/hw12/ftp:/opt/data
-       - /home/hw12/ftp:/opt/app
+       - ./ftp:/opt/data
+       - ./ftp:/opt/app
      depends_on:
        redis:
          condition: service_healthy
@@ -36,11 +36,11 @@ services:
        start_period: 1s
 
    nginx:
-     build: /home/hw12/nginx
+     build: ./nginx
      ports:
        - "80:883"
      volumes:
-       - /home/hw12/ftp:/opt/app
+       - ./ftp:/opt/app
      depends_on:
        redis:
          condition: service_healthy
@@ -56,9 +56,9 @@ services:
    redis:
      image: redis
      volumes:
-       - /home/hw12/nginx:/opt/data
+       - ./nginx:/opt/data
      healthcheck:
-       test: ["CMD", "pwd"]
+       test: ["CMD", "ls"]
        interval: 3s
        timeout: 5s
        retries: 5

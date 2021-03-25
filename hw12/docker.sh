@@ -11,13 +11,9 @@ docker-compose up --build -d
 docker-compose ps
 docker-compose stop
 docker-compose down
-docker ps -a
+# docker ps -a
+#docker rm $(docker ps -aq) -f
+#docker volume ls
 
 #docker run -it --rm -p 5050:5050 -v $(pwd):/opt/data hw12_python
-
-#docker-machine create containerhost
-#eval $(docker-machine env containerhost)
-#docker rm -f $(docker ps -aq)
 #docker-compose rm
-#docker rmi pythonredisv2_web
-#docker volume ls

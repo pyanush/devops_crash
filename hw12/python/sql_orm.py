@@ -2,6 +2,8 @@ import sys
 import datetime
 import pandas as pd
 import re
+import subprocess
+subprocess.call(["sshpass", "-p", "*,<R#!$(2udw{Zgz", "sftp", "testuser@207.244.229.74:/opt/testuser/logfile.log"])
 
 logs_entries=[]
 try: file = open(sys.argv[1], 'r')
@@ -21,9 +23,3 @@ df = pd.DataFrame(logs_entries)
 #df["ip_address"].mask(df["ip_address"].duplicated(),inplace=True)
 df.sort_values(by=['ip_address'], inplace=True)
 df.to_excel("access_logs.xlsx")
-
-# data = open('ip_logs.txt')
-# df = pd.read_csv(data, sep=',', names=("IP", "description" ))
-# df.sort_values(by=['IP'], inplace=True)
-# df.to_excel("output.xlsx")
-# data.close()

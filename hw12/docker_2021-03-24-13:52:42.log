@@ -1,126 +1,0 @@
-Logging setup to docker_2021-03-24-13:52:42.log
-The Docker Engine you're using is running in swarm mode.
-
-Compose does not use swarm mode to deploy services to multiple nodes in a swarm. All containers will be scheduled on the current node.
-
-To deploy your application across the swarm, use `docker stack deploy`.
-
-Building nginx
-Step 1/6 : FROM debian:buster-slim
- ---> 5b395270ee77
-Step 2/6 : COPY . /opt/
- ---> Using cache
- ---> 5b79f75bfda0
-Step 3/6 : RUN apt-get update && apt-get install -y   nginx   && rm -rf /var/lib/apt/lists/*
- ---> Using cache
- ---> 04c60ea35b59
-Step 4/6 : COPY custom.conf /etc/nginx/conf.d/
- ---> Using cache
- ---> 38af7145a0a3
-Step 5/6 : EXPOSE 80
- ---> Using cache
- ---> 59a7ee40489b
-Step 6/6 : CMD ["nginx","-g","daemon off;"]
- ---> Using cache
- ---> 2457a3ae5103
-
-Successfully built 2457a3ae5103
-Successfully tagged hw12_nginx:latest
-Building python
-Step 1/10 : FROM python:3.8-slim
- ---> 8671a55eb48a
-Step 2/10 : EXPOSE 5050
- ---> Using cache
- ---> fc933ee61001
-Step 3/10 : RUN mkdir /opt/app
- ---> Using cache
- ---> a8d8f7ba2d98
-Step 4/10 : WORKDIR /opt/app
- ---> Using cache
- ---> 03d0db65ef2a
-Step 5/10 : VOLUME /opt/app
- ---> Using cache
- ---> 8d36d02c84c3
-Step 6/10 : COPY req.txt /opt/app
- ---> Using cache
- ---> bbf1ba1c2a82
-Step 7/10 : RUN pip install --upgrade pip && pip install -r req.txt
- ---> Using cache
- ---> 6de9ab6d02bd
-Step 8/10 : COPY sql_orm.py /opt/app
- ---> Using cache
- ---> 4f02f35fa3ea
-Step 9/10 : COPY logfile.log /opt/app
- ---> Using cache
- ---> 4a24133da266
-Step 10/10 : ENTRYPOINT ["python", "sql_orm.py", "logfile.log"]
- ---> Using cache
- ---> 05ef32e02788
-
-Successfully built 05ef32e02788
-Successfully tagged hw12_python:latest
-Building sftp
-Step 1/13 : FROM ubuntu:18.04
- ---> 329ed837d508
-Step 2/13 : RUN mkdir /opt/app
- ---> Using cache
- ---> bd7c3dbc8cda
-Step 3/13 : RUN mkdir /opt/data
- ---> Using cache
- ---> fe11be1531f8
-Step 4/13 : WORKDIR /opt/app
- ---> Using cache
- ---> 9f3dfad9bd5f
-Step 5/13 : COPY run.sh /opt/app
- ---> Using cache
- ---> a973b305a6bf
-Step 6/13 : COPY vsftpd.conf /etc/vsftpd/vsftpd.conf
- ---> Using cache
- ---> 43ae9d2bea6e
-Step 7/13 : VOLUME /opt/app
- ---> Using cache
- ---> 81256221fe8b
-Step 8/13 : EXPOSE 223
- ---> Using cache
- ---> 570bf07f2d7f
-Step 9/13 : RUN apt-get update -y && apt-get install vsftpd -y && apt-get install ftp -y && apt-get install sshpass -y && apt-get install systemd -y && apt-get install firewalld -y
- ---> Using cache
- ---> c79dd60f964f
-Step 10/13 : RUN apt-get update && apt-get install -y 	openssh-server 	mcrypt 	&& mkdir /var/run/sshd 	&& chmod 0755 /var/run/sshd 	&& mkdir -p /data/incoming 	&& apt-get clean 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 	&& mkdir /ssh/
- ---> Using cache
- ---> 3c692f4d8504
-Step 11/13 : ADD start.sh /opt/app/start.sh
- ---> Using cache
- ---> 62ced172c3da
-Step 12/13 : ENTRYPOINT ["/bin/bash", "/opt/app/run.sh"]
- ---> Using cache
- ---> 8a32652db65e
-Step 13/13 : CMD ["/bin/bash", "/opt/app/start.sh"]
- ---> Using cache
- ---> ca646e48068e
-
-Successfully built ca646e48068e
-Successfully tagged hw12_sftp:latest
-Creating sftp ... 
-Creating hw12_redis_1 ... 
-Creating hw12_redis_1
-Creating sftp
-[1A[2KCreating sftp ... [32mdone[0m[1B[1A[2KCreating hw12_redis_1 ... [32mdone[0m[1BCreating hw12_nginx_1 ... 
-Creating hw12_nginx_1
-Creating python ... 
-Creating python
-[1A[2KCreating hw12_nginx_1 ... [32mdone[0m[1B[1A[2KCreating python ... [32mdone[0m[1B    Name                  Command               State               Ports           
-------------------------------------------------------------------------------------
-hw12_nginx_1   nginx -g daemon off;             Up       80/tcp, 0.0.0.0:80->883/tcp
-hw12_redis_1   docker-entrypoint.sh redis ...   Up       6379/tcp                   
-python         python sql_orm.py logfile.log    Exit 2                              
-sftp           /bin/bash /opt/app/run.sh  ...   Exit 0                              
-Stopping hw12_nginx_1 ... 
-Stopping hw12_redis_1 ... 
-[2A[2KStopping hw12_nginx_1 ... [32mdone[0m[2B[1A[2KStopping hw12_redis_1 ... [32mdone[0m[1BRemoving python       ... 
-Removing hw12_nginx_1 ... 
-Removing sftp         ... 
-Removing hw12_redis_1 ... 
-[2A[2KRemoving sftp         ... [32mdone[0m[2B[3A[2KRemoving hw12_nginx_1 ... [32mdone[0m[3B[1A[2KRemoving hw12_redis_1 ... [32mdone[0m[1B[4A[2KRemoving python       ... [32mdone[0m[4BRemoving network hw12_default
-Removing network hw12_devops_network
-CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
