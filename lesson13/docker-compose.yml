@@ -6,16 +6,16 @@ services:
         - /home/testuser/MyProject/lesson/log:/data
      ports:
         - "223:22"
-   python:
-      build: /home/testuser/MyProject/lesson9
-      volumes:
-      - /home/testuser/MyProject/lesson/result:/data
-      healthcheck:
-          test: ["CMD-SHELL", "test -f /home/testuser/MyProject/lesson9/access_log.db"]        
+    python:
+     build: /home/testuser/MyProject/lesson9
+     volumes:
+        - /home/testuser/MyProject/lesson/result:/data
+     healthcheck:
+          test: ["CMD", "test", "-e", "/data/access_logs.db" ]
           interval: 3s
           timeout: 5s
           retries: 5
-          start_period: 1sip
+          start_period: 1s
    nginx:
      image: nginx
      ports:
@@ -25,3 +25,6 @@ services:
          condition: service_healthy
      environment:
        - ENV=development
+
+
+
