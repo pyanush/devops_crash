@@ -53,5 +53,4 @@ dz and server.txt
 .vscode
 .vagrant
 vagrant
-sshkey
 Vagrantfile
