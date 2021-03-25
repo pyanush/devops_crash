@@ -3,9 +3,28 @@ services:
   sftp:
     build: sftp/
     volumes: 
-        -/home/mykola/download/:/download/
+        - /home/mykola/upload/:/home/foo/upload/
+    ports:
+        - "223:22"
+    command: foo:pass:1001
+
+  python:
+    build: python/
+    volumes: 
+      - /home/mykola/upload/logs:/app/logs/
+      - /home/mykola/upload/result:/app/result/
+
+  nginx:
+    build: nginx/
+    ports: 
+       - "8080:80"
+
+  
+
+
+
     healthcheck:
-        test:  ["CMD-SHELL", "test -f /download/logfile.log"] 
+        test:  ["CMD-SHELL", "test -f /upload/logfile.log"] 
         interval: 3s
         timeout: 5s
         retries: 50

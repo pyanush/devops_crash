@@ -12,6 +12,8 @@
 docker -it -p 1234:8080 tomcat
 docker -d -p 1234:80 nginx
 
+sftp
+sudo scp -r testuser@207.244.229.74:/opt/testuser/logfile.log /home/mykola/upload
 
 
 FROM alpine:3.11.5
