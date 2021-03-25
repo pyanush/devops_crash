@@ -5,10 +5,31 @@ https://regex101.com/r/3K511B/2
 
 Тут можна наочно подивитись)
 
-1) дата й час
+1) дата й час 
 3) назва хоста, з якого збирається лог
 4) sshd, необхідно, щоб відфільтрувати логи саме демона ssh
 5) Повідомлення з логу
 6) IP, з якого "стукались" на сервер
 
-За бажанням можете відформатувати документ, згрупувавши дані по унікальних значення з колонки.
+
+Since SQLAlchemy is a specific package  that we'll be working with for our application,
+it's recommended to create a Virtualenv first.
+https://www.liquidweb.com/kb/how-to-setup-a-python-virtual-environment-on-windows-10/
+
+Start virtualenv 
+In your windows command prompt, head to your project location: 
+cd my_project
+ 
+Once inside the project folder run: 
+virtualenv env
+
+Activate virtualenv 
+On Windows, virtualenv (venv) creates a batch file called 
+\env\Scripts\activate.bat
+
+To activate virtualenv on Windows, and activate the script is in the Scripts folder :
+\pathto\env\Scripts\activate
+
+Example: 
+C:\Users\'Username'\venv\Scripts\activate.bat
+ 

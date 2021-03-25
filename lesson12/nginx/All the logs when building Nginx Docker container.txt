@@ -1,0 +1,33 @@
+[root@localhost nginx]# docker build . -t nginx007
+__________________________________________________
+Sending build context to Docker daemon 3.584 kB
+Step 1/5 : FROM nginx:alpine
+ ---> 5fd75c905b52
+Step 2/5 : RUN apk update     && apk add nginx     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*     && echo "daemon off;" >> /etc/nginx/nginx.conf
+ ---> Running in e451d8195893
+
+fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/main/x86_64/APKINDEX.tar.gz
+fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/community/x86_64/APKINDEX.tar.gz
+v3.13.2-132-gce231d64d5 [https://dl-cdn.alpinelinux.org/alpine/v3.13/main]
+v3.13.2-126-g900f98faad [https://dl-cdn.alpinelinux.org/alpine/v3.13/community]
+OK: 13890 distinct packages available
+OK: 25 MiB in 42 packages
+ ---> 6a473faae17f
+Removing intermediate container e451d8195893
+Step 3/5 : COPY nginx_basic.conf /etc/nginx/conf.d/
+ ---> 1a490b68a541
+Removing intermediate container 5859a5cc9de3
+Step 4/5 : EXPOSE 80
+ ---> Running in f21d5390ebb7
+ ---> 82e45e09c4f4
+Removing intermediate container f21d5390ebb7
+Step 5/5 : CMD nginx
+ ---> Running in f5036a6f4394
+ ---> 3cbd63de728b
+Removing intermediate container f5036a6f4394
+Successfully built 3cbd63de728b
+
+[root@localhost nginx]# 
+
+--------------
+FINALLY nginx007 image has 24.7 MB. YAY! 
