@@ -1,0 +1,64 @@
+version: "2.3"
+services:
+  sftp:
+    build: sftp/
+    volumes: 
+        -/home/mykola/download/:/download/
+    healthcheck:
+        test:  ["CMD-SHELL", "test -f /download/logfile.log"] 
+        interval: 3s
+        timeout: 5s
+        retries: 50
+        start_period: 1s
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   nginx:
+     build: /home/mykola/lesson12/project_devops/nginx
+     ports:
+       - "8000:80"
+     volumes:
+       - /root/docker/redis:/data
+     depends_on:
+       redis:
+         condition: service_healthy
+     environment:
+       - ENV=development
+   redis:
+     image: redis
+     volumes:
+       - /root/docker/redis:/data
+     healthcheck:
+       test: ["CMD", "redis-cli", "-v"]
+       interval: 3s
+       timeout: 5s
+       retries: 5
+       start_period: 1s

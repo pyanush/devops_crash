@@ -11,4 +11,4 @@ COPY custom.conf /etc/nginx/conf.d/
 
 COPY . /opt/
 
-CMD ["nginx","-g","daemon off;"]
+CMD ["nginx","-","daemon off;"]
