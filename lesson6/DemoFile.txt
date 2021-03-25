@@ -1,0 +1,100 @@
+ 	#1 	Apple 	Computer Hardware 	United States
+	#2 	Microsoft 	Software & Programming 	United States
+	#3 	Samsung Electronics 	Semiconductors 	South Korea
+	#4 	Alphabet 	Computer Services 	United States
+	#5 	AT&T 	Telecommunications services 	United States
+	#6 	Amazon 	Internet & Catalog Retail 	United States
+	#7 	Verizon Communications 	Telecommunications services 	United States
+	#8 	China Mobile 	Telecommunications services 	Hong Kong
+	#9 	Walt Disney 	Broadcasting & Cable 	United States
+	#10 	Facebook 	Computer Services 	United States
+	#11 	Alibaba 	Internet & Catalog Retail 	China
+	#12 	Intel 	Semiconductors 	United States
+	#13 	Softbank 	Telecommunications services 	Japan
+	#14 	IBM 	Computer Services 	United States
+	#15 	Tencent Holdings 	Computer Services 	China
+	#16 	Nippon Telegraph & Tel 	Telecommunications services 	Japan
+	#17 	Cisco Systems 	Communications Equipment 	United States
+	#18 	Oracle 	Software & Programming 	United States
+	#19 	Deutsche Telekom 	Telecommunications services 	Germany
+	#20 	Taiwan Semiconductor 	Semiconductors 	Taiwan
+	#21 	KDDI 	Telecommunications services 	Japan
+	#22 	SAP 	Software & Programming 	Germany
+	#23 	Telefonica 	Telecommunications services 	Spain
+	#24 	America Movil 	Telecommunications services 	Mexico
+	#25 	Hon Hai Precision 	Electronics 	Taiwan
+	#26 	Dell Technologies 	Computer Hardware 	United States
+	#27 	Orange 	Telecommunications services 	France
+	#28 	China Telecom 	Telecommunications services 	China
+	#29 	SK Hynix 	Semiconductors 	South Korea
+	#30 	Accenture 	Computer Services 	Ireland
+	#31 	Broadcom 	Semiconductors 	United States
+	#32 	Micron Technology 	Semiconductors 	United States
+	#33 	Qualcomm 	Semiconductors 	United States
+	#34 	PayPal 	Consumer Financial Services 	United States
+	#35 	China Unicom 	Telecommunications services 	Hong Kong
+	#36 	HP 	Computer Hardware 	United States
+	#37 	BCE 	Telecommunications services 	Canada
+	#38 	Tata Consultancy Services 	Computer Services 	India
+	#39 	Automatic Data Processing 	Business & Personal Services 	United States
+	#40 	BT Group 	Telecommunications services 	United Kingdom
+	#41 	Mitsubishi Electric 	Electrical Equipment 	Japan
+	#42 	Canon 	Business Products & Supplies 	Japan
+	#43 	Booking Holdings 	Business & Personal Services 	United States
+	#44 	Saudi Telecom 	Telecommunications services 	Saudi Arabia
+	#45 	JD.com 	Internet & Catalog Retail 	China
+	#46 	Texas Instruments 	Semiconductors 	United States
+	#47 	Netflix 	Internet & Catalog Retail 	United States
+	#48 	Philips 	Health Care Equipment & Svcs 	Netherlands
+	#49 	Etisalat 	Telecommunications services 	United Arab Emirates
+	#50 	Baidu 	Computer Services 	China
+	#51 	ASML Holding 	Semiconductors 	Netherlands
+	#52 	Salesforce.com 	Software & Programming 	United States
+	#53 	Applied Materials 	Semiconductors 	United States
+	#54 	Recruit Holdings 	Business & Personal Services 	Japan
+	#55 	SingTel 	Telecommunications services 	Singapore
+	#56 	Adobe 	Software & Programming 	United States
+	#57 	Xiaomi 	- 	China
+	#58 	Telstra 	Telecommunications services 	Australia
+	#59 	VMware 	Software & Programming 	United States
+	#60 	TE Connectivity 	Electronics 	Switzerland
+	#61 	SK Holdings 	Oil & Gas Operations 	South Korea
+	#62 	Murata Manufacturing 	Electronics 	Japan
+	#63 	Cognizant 	Computer Services 	United States
+	#64 	NVIDIA 	Semiconductors 	United States
+	#65 	eBay 	Internet & Catalog Retail 	United States
+	#66 	Telenor 	Telecommunications services 	Norway
+	#67 	Vodafone 	Telecommunications services 	United Kingdom
+	#68 	SK Telecom 	Telecommunications services 	South Korea
+	#69 	Vivendi 	Telecommunications services 	France
+	#70 	Naspers 	Broadcasting & Cable 	South Africa
+	#71 	Infosys 	Computer Services 	India
+	#72 	China Tower Corp. 	- 	China
+	#73 	Swisscom 	Telecommunications services 	Switzerland
+	#74 	Corning 	Communications Equipment 	United States
+	#75 	Fidelity National Information 	Business & Personal Services 	United States
+	#76 	Rogers Communications 	Telecommunications services 	Canada
+	#77 	Nintendo 	Recreational Products 	Japan
+	#78 	Kyocera 	Electronics 	Japan
+	#79 	NXP Semiconductors 	Semiconductors 	Netherlands
+	#80 	DISH Network 	Broadcasting & Cable 	United States
+	#81 	Rakuten 	Internet & Catalog Retail 	Japan
+	#82 	Altice Europe 	Broadcasting & Cable 	Netherlands
+	#83 	TELUS 	Telecommunications services 	Canada
+	#84 	Capgemini 	Computer Services 	France
+	#85 	Activision Blizzard 	Recreational Products 	United States
+	#86 	Analog Devices 	Semiconductors 	United States
+	#87 	Lam Research 	Semiconductors 	United States
+	#88 	DXC Technology 	Business & Personal Services 	United States
+	#89 	Legend Holding 	Computer Hardware 	China
+	#90 	Lenovo Group 	Computer Hardware 	Hong Kong
+	#91 	NetEase 	Computer Services 	China
+	#92 	Tokyo Electron 	Semiconductors 	Japan
+	#93 	Keyence 	Electronics 	Japan
+	#94 	Telkom Indonesia 	Telecommunications services 	Indonesia
+	#95 	Nokia 	Communications Equipment 	Finland
+	#96 	Fortive 	Electrical Equipment 	United States
+	#97 	Ericsson 	Communications Equipment 	Sweden
+	#98 	Fiserv 	Software & Programming 	United States
+	#99 	Fujitsu 	Computer Hardware 	Japan
+	#100 	Hewlett Packard Enterprise 	Computer Hardware 	United States
