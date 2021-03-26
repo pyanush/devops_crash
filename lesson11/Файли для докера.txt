@@ -14,7 +14,7 @@ docker -d -p 1234:80 nginx
 
 sftp
 sudo scp -r testuser@207.244.229.74:/opt/testuser/logfile.log /home/mykola/upload
-
+docker run -it -p 2222:22 -v /home/mykola/upload/:/home/foo/upload/ atmoz/sftp foo:pass:1001
 
 FROM alpine:3.11.5
 

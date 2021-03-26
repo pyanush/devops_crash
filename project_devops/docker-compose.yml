@@ -11,13 +11,12 @@ services:
   python:
     build: python/
     volumes: 
-      - /home/mykola/upload/logs:/app/logs/
-      - /home/mykola/upload/result:/app/result/
-
+      - /home/mykola/upload/:/app/
+      
   nginx:
     build: nginx/
     ports: 
-       - "8080:80"
+       - "883:80"
 
   
 

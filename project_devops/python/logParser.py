@@ -2,7 +2,7 @@ import datetime
 import re
 import pandas as pd
 
-inputFile = open ("/home/mykola/download/logfile.log", 'r',encoding='utf-8')
+inputFile = open ("python/upload/logfile.log", 'r',encoding='utf-8')
 
 log_entries = []
 
@@ -21,4 +21,4 @@ inputFile.close ()
 df = pd.DataFrame (log_entries)
 df["hostname"].mask(df["hostname"].duplicated(), inplace=True)
 df["ip_address"].mask(df["ip_address"].duplicated(), inplace=True)
-df.to_excel("formatt.xlsx")
+df.to_excel("python/upload/formatt.xlsx")
