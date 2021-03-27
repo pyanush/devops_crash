@@ -1,13 +1,13 @@
 version: "2.3"
 services:
    sftp:
-     build: /home/hw12/ftp
+     build: ./ftp
      container_name: sftp
      ports:
          - "223:22"
      volumes: 
-       - /home/hw12/ftp:/opt/data
-       - /home/hw12/ftp:/opt/app
+       - ./ftp:/opt/data
+       - ./ftp:/opt/app
      networks:
        - devops_network
      healthcheck:
@@ -21,44 +21,34 @@ services:
      build: ./python 
      container_name: python
      volumes: 
-       - ./ftp:/opt/data
-       - ./ftp:/opt/app
+       - ./python:/opt/data
+       - ./python:/opt/app
      depends_on:
        redis:
          condition: service_healthy
      environment:
        - ENV=development
      healthcheck:
-       test: ["CMD", "python", "sql_orm.py"]
+       test: ["CMD-SHELL", "test -f /opt/app/logfile.log"]
        interval: 3s
        timeout: 5s
-       retries: 5
+       retries: 10
        start_period: 1s
 
    nginx:
      build: ./nginx
+     container_name: nginx
      ports:
        - "80:883"
      volumes:
        - ./ftp:/opt/app
      depends_on:
-       redis:
+       python:
          condition: service_healthy
      environment:
        - ENV=development
      healthcheck:
-       test: ["CMD", "ls", "-lsa"]
-       interval: 3s
-       timeout: 5s
-       retries: 5
-       start_period: 1s
-
-   redis:
-     image: redis
-     volumes:
-       - ./nginx:/opt/data
-     healthcheck:
-       test: ["CMD", "ls"]
+       test: ["CMD-SHELL", "ls", "-lsa"]
        interval: 3s
        timeout: 5s
        retries: 5
