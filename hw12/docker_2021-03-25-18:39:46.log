@@ -1,134 +1,0 @@
-Logging setup to docker_2021-03-25-18:39:46.log
-The Docker Engine you're using is running in swarm mode.
-
-Compose does not use swarm mode to deploy services to multiple nodes in a swarm. All containers will be scheduled on the current node.
-
-To deploy your application across the swarm, use `docker stack deploy`.
-
-Creating network "hw12_default" with the default driver
-Creating network "hw12_devops_network" with driver "bridge"
-Building nginx
-Step 1/6 : FROM debian:buster-slim
- ---> 5b395270ee77
-Step 2/6 : COPY . /opt/
- ---> Using cache
- ---> 4315a0f5e4c6
-Step 3/6 : RUN apt-get update && apt-get install -y   nginx   && rm -rf /var/lib/apt/lists/*
- ---> Using cache
- ---> d24e8e782a33
-Step 4/6 : COPY custom.conf /etc/nginx/conf.d/
- ---> Using cache
- ---> 9efa759c1db4
-Step 5/6 : EXPOSE 80
- ---> Using cache
- ---> c7ccdce4b17a
-Step 6/6 : CMD ["nginx","-g","daemon off;"]
- ---> Using cache
- ---> 3cc959c10c79
-
-Successfully built 3cc959c10c79
-Successfully tagged hw12_nginx:latest
-Building python
-Step 1/11 : FROM python:3.8-slim
- ---> 8671a55eb48a
-Step 2/11 : ENV BIND_PORT 5050
- ---> Using cache
- ---> f0113f0ab834
-Step 3/11 : ENV REDIS_HOST redis
- ---> Using cache
- ---> 0910c778c233
-Step 4/11 : ENV REDIS_PORT 6379
- ---> Using cache
- ---> b83d7a9f3bd2
-Step 5/11 : EXPOSE $BIND_PORT
- ---> Using cache
- ---> e0e2d746d889
-Step 6/11 : WORKDIR /opt/app
- ---> Using cache
- ---> 26084805e0a9
-Step 7/11 : VOLUME /opt/app
- ---> Using cache
- ---> 2eeea42fe195
-Step 8/11 : COPY req.txt /opt/app
- ---> Using cache
- ---> 8213764341b9
-Step 9/11 : RUN pip install --upgrade pip && pip install -r req.txt
- ---> Using cache
- ---> b9e23c0cc9b3
-Step 10/11 : COPY sql_orm.py /opt/app
- ---> Using cache
- ---> 04dcffa62823
-Step 11/11 : CMD ["python", "sql_orm.py"]
- ---> Running in ea9f3972b293
-Removing intermediate container ea9f3972b293
- ---> eb181f1f471d
-
-Successfully built eb181f1f471d
-Successfully tagged hw12_python:latest
-Building sftp
-Step 1/14 : FROM ubuntu:18.04
- ---> 329ed837d508
-Step 2/14 : RUN mkdir /opt/app
- ---> Using cache
- ---> 7bf7b282b2bb
-Step 3/14 : RUN mkdir /opt/data
- ---> Using cache
- ---> 7e4c52f653de
-Step 4/14 : WORKDIR /opt/app
- ---> Using cache
- ---> 8245a583dac9
-Step 5/14 : COPY run.sh /opt/app
- ---> Using cache
- ---> 81a232de9dde
-Step 6/14 : COPY vsftpd.conf /etc/vsftpd/vsftpd.conf
- ---> Using cache
- ---> 7abf057a8fd6
-Step 7/14 : COPY ssh_config /etc/ssh/sshd_config
- ---> Using cache
- ---> e314111595b8
-Step 8/14 : VOLUME /opt/app
- ---> Using cache
- ---> 4cfe0913a80e
-Step 9/14 : EXPOSE 223
- ---> Using cache
- ---> ede1526c0b6e
-Step 10/14 : RUN apt-get update -y && apt-get install vsftpd -y && apt-get install ftp -y && apt-get install sshpass -y && apt-get install systemd -y && apt-get install firewalld -y
- ---> Using cache
- ---> 3e6ae180a2fb
-Step 11/14 : RUN apt-get update && apt-get install -y 	openssh-server 	mcrypt 	&& mkdir /var/run/sshd 	&& chmod 0755 /var/run/sshd 	&& mkdir -p /data/incoming 	&& apt-get clean 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 	&& mkdir /ssh/
- ---> Using cache
- ---> 315469a195f4
-Step 12/14 : ADD start.sh /opt/app/start.sh
- ---> Using cache
- ---> 3d38b538e841
-Step 13/14 : ENTRYPOINT ["/bin/bash", "/opt/app/run.sh"]
- ---> Using cache
- ---> 02591488774e
-Step 14/14 : CMD ["/bin/bash", "/opt/app/start.sh"]
- ---> Using cache
- ---> 103e26b91636
-
-Successfully built 103e26b91636
-Successfully tagged hw12_sftp:latest
-Creating hw12_redis_1 ... 
-Creating sftp ... 
-Creating sftp
-Creating hw12_redis_1
-[1A[2KCreating sftp ... [32mdone[0m[1B[1A[2KCreating hw12_redis_1 ... [32mdone[0m[1BCreating hw12_nginx_1 ... 
-Creating hw12_nginx_1
-Creating python ... 
-Creating python
-[1A[2KCreating hw12_nginx_1 ... [32mdone[0m[1B[1A[2KCreating python ... [32mdone[0m[1B    Name                  Command               State               Ports           
-------------------------------------------------------------------------------------
-hw12_nginx_1   nginx -g daemon off;             Up       80/tcp, 0.0.0.0:80->883/tcp
-hw12_redis_1   docker-entrypoint.sh redis ...   Up       6379/tcp                   
-python         python sql_orm.py                Exit 2                              
-sftp           /bin/bash /opt/app/run.sh  ...   Exit 0                              
-Stopping hw12_nginx_1 ... 
-Stopping hw12_redis_1 ... 
-[2A[2KStopping hw12_nginx_1 ... [32mdone[0m[2B[1A[2KStopping hw12_redis_1 ... [32mdone[0m[1BRemoving python       ... 
-Removing hw12_nginx_1 ... 
-Removing hw12_redis_1 ... 
-Removing sftp         ... 
-[1A[2KRemoving sftp         ... [32mdone[0m[1B[4A[2KRemoving python       ... [32mdone[0m[4B[2A[2KRemoving hw12_redis_1 ... [32mdone[0m[2B[3A[2KRemoving hw12_nginx_1 ... [32mdone[0m[3BRemoving network hw12_default
-Removing network hw12_devops_network
