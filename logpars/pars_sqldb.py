@@ -36,3 +36,7 @@ session.commit()
 
 session.close()
 file.close()
+
+while True:
+	
+session = session()
