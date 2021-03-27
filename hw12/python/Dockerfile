@@ -1,17 +1,11 @@
-FROM python:3.8-slim
-ENV BIND_PORT 5050
-ENV REDIS_HOST redis
-ENV REDIS_PORT 6379
-EXPOSE $BIND_PORT
+FROM python:3-onbuild
+COPY api.py /opt/app/api.py
+COPY sftp.py /opt/app/sql_orm.py
+COPY requirements.txt /opt/app/requirements.txt
 WORKDIR /opt/app
 VOLUME /opt/app
-COPY req.txt /opt/app
-RUN pip install --upgrade pip && pip install -r req.txt
-COPY sql_orm.py /opt/app
-# ENTRYPOINT ["python","ssh.py"]
-CMD ["python", "sql_orm.py"]
-#sudo docker run -itd --rm -p 5050:5050 -v $(pwd):/opt/app sql
+RUN pip install --upgrade pip && pip install -r requirements.txt
+RUN pip install --upgrade pip && pip install paramiko
 
-#COPY logfile.log /opt/app
-
-# COPY app.py /opt/app/app.py
+ENTRYPOINT ["python", "sql_orm.py"]
+# CMD ["python", "api.py"]
