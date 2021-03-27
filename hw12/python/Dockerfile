@@ -1,6 +1,6 @@
 FROM python:3-onbuild
 COPY api.py /opt/app/api.py
-COPY sftp.py /opt/app/sql_orm.py
+COPY sql_orm.py /opt/app/sql_orm.py
 COPY requirements.txt /opt/app/requirements.txt
 WORKDIR /opt/app
 VOLUME /opt/app
