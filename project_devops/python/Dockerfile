@@ -2,15 +2,15 @@ FROM python:3.9-rc-slim
 
 WORKDIR /app/
 
-VOLUME /app/
+VOLUME ./app/
 
-COPY logParser.py /app/
-
-COPY ./upload/ /app/
+COPY import.txt ./
 
 RUN pip3 install --upgrade pip \
-    && pip3 install pandas \
-    && pip3 install workbook \
-    && pip3 install openpyxl  
+    --no-cache-dir -r import.txt
+     
+COPY logParser.py /app/
+
+COPY ./app/logfile.log /app/logfile.log
 
 CMD ["python3", "logParser.py"]
