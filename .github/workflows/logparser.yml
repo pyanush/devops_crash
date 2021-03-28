@@ -1,0 +1,50 @@
+name: Pavlo_polyak_25021982
+
+env:
+  PACK_NAME: "docker-compose ${{ github.sha }}"
+  APP_NAME: "docker-compose"
+  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }} 
+ 
+on:
+  push:
+    branches: 
+      - Pavlo_polyak_25021982
+  pull_request:
+    branches: 
+      - Pavlo_polyak_25021982
+  workflow_dispatch:
+
+jobs:
+  my_ubuntu:
+    runs-on: ubuntu-latest 
+    steps:
+    - name: Setup SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        echo -e "Host *\n\tStrictHostKeyChecing no\n\n" > ~/.ssh/config
+    - name: git clone
+      uses: actions/checkout@v1
+      
+  my_python:
+    runs-on: ubuntu-latest
+    needs: [my_ubuntu]
+    strategy:
+      matrix:
+        python-version:
+        - 'pypy-3.6' # the latest available version of PyPy that supports Python 3.6
+#         - 'pypy-3.7' # the latest available version of PyPy that supports Python 3.7
+#         - 'pypy-3.7-v7.3.3' # Python 3.7 and PyPy 7.3.3
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - run: |
+        pip install paramiko
+        pip install pandas
+        pip install sqlalchemy
+        pip install openpyxl
+        python sql_orm.py
+        

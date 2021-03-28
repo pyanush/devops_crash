@@ -2,12 +2,11 @@ FROM ubuntu:18.04
 RUN mkdir /opt/app
 RUN mkdir /opt/data
 WORKDIR /opt/app
-COPY run.sh /opt/app
+VOLUME /opt/app
+EXPOSE 223
 
 COPY vsftpd.conf /etc/vsftpd/vsftpd.conf
 COPY ssh_config /etc/ssh/sshd_config
-VOLUME /opt/app
-EXPOSE 223
 
 RUN apt-get update -y && \
 apt-get install vsftpd -y && \
@@ -28,8 +27,5 @@ RUN apt-get update && apt-get install -y \
 
 ADD start.sh /opt/app/start.sh
 
-ENTRYPOINT ["/bin/bash", "/opt/app/run.sh"]
+ENTRYPOINT ["/bin/bash", "/opt/app/start.sh"]
 
-CMD ["/bin/bash", "/opt/app/start.sh"]
-
-#sudo docker run -itd --rm -p 223:223 -v $(pwd):/opt/app ftp

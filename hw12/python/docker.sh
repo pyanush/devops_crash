@@ -1,6 +1,6 @@
 #Logging
 set -e
-LOG_F="docker_"`date "+%F-%T"`".log"
+LOG_F="docker_.log"
 exec &> >(tee "${LOG_F}")
 echo "Logging setup to ${LOG_F}"
 
