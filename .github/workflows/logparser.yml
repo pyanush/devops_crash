@@ -42,7 +42,7 @@ jobs:
 
       - name: Run a multi-line script
         run: |
-          ls 
+          pwd 
           cd lesson12/my_project
           ls
           
