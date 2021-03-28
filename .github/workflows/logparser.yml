@@ -45,7 +45,7 @@ jobs:
           pwd 
           cd lesson12/my_project
           ls
-          
+          git status
 
 
 
