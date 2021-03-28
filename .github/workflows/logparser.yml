@@ -42,10 +42,8 @@ jobs:
 
       - name: Run a multi-line script
         run: |
-          pwd 
           cd lesson12/my_project
-          ls
-          git status
+          docker-compose up -d --force-recreate
 
 
 
