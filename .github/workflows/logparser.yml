@@ -35,7 +35,7 @@ jobs:
 
       - name: Run a multi-line script
         run: |
-          cd /lesson12/my_project
+          cd lesson12/my_project
           ls
           
 
