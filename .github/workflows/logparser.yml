@@ -35,8 +35,8 @@ jobs:
 
       - name: Run a multi-line script
         run: |
-          cd /valentyn_zakharov_14071979,
-          pwd
+          pwd,
+          ls -al
           
 
 
