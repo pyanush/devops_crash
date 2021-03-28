@@ -4,7 +4,7 @@ services:
   sshpass:
     build: sshpass/
     volumes:
-        - /home/val13/lesson12/my_project/logs:/logs
+        - ./logs:/logs
     healthcheck:
        test:  ["CMD-SHELL", "test -f /logs/logfile.log"]
        interval: 3s
@@ -19,7 +19,7 @@ services:
       sshpass:
         condition: service_healthy
     volumes:
-        - /home/val13/lesson12/my_project/result:/home/foo/upload
+        - ./result:/home/foo/upload
     ports:
         - "223:22"
     command: foo:pass:1001
@@ -30,8 +30,8 @@ services:
       sshpass:
         condition: service_healthy
     volumes:
-        - /home/val13/lesson12/my_project/logs:/app/logs/
-        - /home/val13/lesson12/my_project/result:/app/result/
+        - ./logs:/app/logs/
+        - ./result:/app/result/
     healthcheck:
        test:  ["CMD-SHELL", "test -f /app/result/access.db"]
        interval: 3s
@@ -47,4 +47,4 @@ services:
       python:
         condition: service_healthy
     volumes: 
-       - /home/val13/lesson12/my_project/html:/opt/app/
+       - ./html:/opt/app/
