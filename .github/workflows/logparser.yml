@@ -35,8 +35,10 @@ jobs:
 
       - name: Run a multi-line script
         run: |
-          echo Add other actions to build
-          cd /valentyn_zakharov_14071979
+          cd /valentyn_zakharov_14071979,
           pwd
-          ,
-          echo test, and deploy your project.
+          
+
+
+
+
