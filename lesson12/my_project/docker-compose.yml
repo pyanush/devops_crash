@@ -10,7 +10,7 @@ services:
        interval: 3s
        timeout: 5s
        retries: 50
-       start_period: 1s
+       start_period: 15s
  
   
   sftp:
