@@ -1,3 +1,6 @@
+Status of Last Deployment:<br>
+<img src="https://github.com/adv4000/github-actions-part-1-basics/workflows/My-GitHubActions-Basics/badge.svg?branch=master"><br>
+
 # Resume
 
 ### Pavlo Polyak
@@ -10,6 +13,7 @@ will help me to prove myself successfully in work.
 The main thing is to have the opportunity 
 for development and career growth
 ```
+
 
 ### Languages
 - 🇺🇦 УКРАЇНСЬКА
