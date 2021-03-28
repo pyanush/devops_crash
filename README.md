@@ -1,3 +1,7 @@
+Status of Last Deployment:<br>
+<img src="https://github.com/pyanush/devops_crash/workflows/Pavlo_polyak_25021982/badge.svg?branch=Pavlo_polyak_25021982"><br>
+
+
 # Resume
 
 ### Pavlo Polyak
@@ -76,5 +80,3 @@ virtue, rigor. Faithful and honest friend
 - 099 091 36 77
 - https://t.me/PashaPolyak
 - poliakpavlo@gmail.com
-Status of Last Deployment:<br>
-<img src="https://github.com/pyanush/devops_crash/workflows/Pavlo_polyak_25021982/badge.svg?branch=Pavlo_polyak_25021982"><br>
