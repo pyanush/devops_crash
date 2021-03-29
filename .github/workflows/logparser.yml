@@ -25,9 +25,11 @@ jobs:
     steps:
       - name: Setup 
         run: |
+          whoami
           cd /home/testuser
-          mkdir valentyn_zakharov_workflow
-          cd valentyn_zakharov_workflow
+          pwd
+          mkdir /home/testuser/valentyn_zakharov_workflow
+          cd /home/testuser/valentyn_zakharov_workflow
           pwd
             
           
