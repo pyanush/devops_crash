@@ -25,11 +25,10 @@ jobs:
     steps:
       - name: Setup 
         run: |
-          whoami
-          pwd
           cd /home/testuser
+          mkdir valentyn_zakharov_workflow
+          cd valentyn_zakharov_workflow
           pwd
-          ls
             
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
