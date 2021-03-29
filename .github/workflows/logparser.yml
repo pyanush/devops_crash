@@ -42,7 +42,7 @@ jobs:
     - uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
-    - name: pip depends & run
+    
     - run: |
         python -m pip install --upgrade pip
         pip install paramiko
@@ -50,7 +50,7 @@ jobs:
         pip install sqlalchemy
         pip install openpyxl
         python sql_orm.py
-#        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     
     - name: docker build
       run: |
@@ -59,10 +59,9 @@ jobs:
         docker-compose up -d --force-recreate
         ls -la
 
-    - name: Create ZIP deployment package
+    - name: Create ZIP artifacts
       run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
       
-
 #     - name: put sftp
 #       uses: appleboy/scp-action@master
 #       with: host: username: key: port: source: target: strip_components: 1
