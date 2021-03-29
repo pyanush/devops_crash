@@ -23,17 +23,21 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Setup SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-      
+      #- name: Setup SSH
+      #  run: |
+      #    mkdir -p ~/.ssh
+      #    echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_rsa
+      #    chmod 600 ~/.ssh/id_rsa
+      #    echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+      #  env:
+      #    SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: path
+        - run: |
+          mkdir /home/testuser/valentyn_zakharov
+          cd /home/testuser/valentyn_zakharov
+          pwd
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      # - uses: actions/checkout@v2
       
       # Runs a set of commands using the runners shell
       - name: Docker-compose
