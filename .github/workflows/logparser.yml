@@ -31,9 +31,8 @@ jobs:
           echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
           whoami
           pwd
-          su testuser
-          whoami
-          pwd
+          cd /home/testuser
+          ls
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         
