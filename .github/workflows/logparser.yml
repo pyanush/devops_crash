@@ -32,7 +32,7 @@ jobs:
       #  env:
       #    SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: path
-        - run: |
+         run: |
           mkdir /home/testuser/valentyn_zakharov
           cd /home/testuser/valentyn_zakharov
           pwd
