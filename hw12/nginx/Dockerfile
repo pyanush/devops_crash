@@ -1,6 +1,6 @@
 FROM debian:buster-slim
 
-COPY . /opt/app
+COPY . /opt
 WORKDIR /opt/app
 VOLUME /opt/app
 

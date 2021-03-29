@@ -5,6 +5,7 @@ WORKDIR /opt/app
 VOLUME /opt/app
 EXPOSE 223
 
+COPY start.sh /opt/app/start.sh
 COPY vsftpd.conf /etc/vsftpd/vsftpd.conf
 COPY ssh_config /etc/ssh/sshd_config
 
@@ -24,8 +25,6 @@ RUN apt-get update && apt-get install -y \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
 	&& mkdir /ssh/
-
-ADD start.sh /opt/app/start.sh
 
 ENTRYPOINT ["/bin/bash", "/opt/app/start.sh"]
 

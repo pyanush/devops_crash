@@ -1,0 +1,116 @@
+Logging setup to docker_2021-03-29-15:08:04.log
+The Docker Engine you're using is running in swarm mode.
+
+Compose does not use swarm mode to deploy services to multiple nodes in a swarm. All containers will be scheduled on the current node.
+
+To deploy your application across the swarm, use `docker stack deploy`.
+
+Building sftp
+Step 1/12 : FROM ubuntu:18.04
+ ---> 329ed837d508
+Step 2/12 : RUN mkdir /opt/app
+ ---> Using cache
+ ---> 7bf7b282b2bb
+Step 3/12 : RUN mkdir /opt/data
+ ---> Using cache
+ ---> 7e4c52f653de
+Step 4/12 : WORKDIR /opt/app
+ ---> Using cache
+ ---> 8245a583dac9
+Step 5/12 : VOLUME /opt/app
+ ---> Using cache
+ ---> d6a7af3e4642
+Step 6/12 : EXPOSE 223
+ ---> Using cache
+ ---> c1cabcd412b2
+Step 7/12 : COPY start.sh /opt/app/start.sh
+ ---> Using cache
+ ---> 075476b0a53c
+Step 8/12 : COPY vsftpd.conf /etc/vsftpd/vsftpd.conf
+ ---> Using cache
+ ---> b4439b9301af
+Step 9/12 : COPY ssh_config /etc/ssh/sshd_config
+ ---> Using cache
+ ---> 0aedc035705c
+Step 10/12 : RUN apt-get update -y && apt-get install vsftpd -y && apt-get install ftp -y && apt-get install sshpass -y && apt-get install systemd -y && apt-get install firewalld -y
+ ---> Using cache
+ ---> 7ae4be52fd29
+Step 11/12 : RUN apt-get update && apt-get install -y 	openssh-server 	mcrypt 	&& mkdir /var/run/sshd 	&& chmod 0755 /var/run/sshd 	&& mkdir -p /data/incoming 	&& apt-get clean 	&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 	&& mkdir /ssh/
+ ---> Using cache
+ ---> b5a1fedb3b78
+Step 12/12 : ENTRYPOINT ["/bin/bash", "/opt/app/start.sh"]
+ ---> Using cache
+ ---> 77a63c6f284b
+
+Successfully built 77a63c6f284b
+Successfully tagged hw12_sftp:latest
+Building python
+Step 1/8 : FROM python:slim
+ ---> b2b5367cdfd4
+Step 2/8 : COPY sql_orm.py /opt/app/sql_orm.py
+ ---> Using cache
+ ---> fe3035f5fc31
+Step 3/8 : COPY requirements.txt /opt/app/requirements.txt
+ ---> Using cache
+ ---> 4bd4f5fb0e2f
+Step 4/8 : WORKDIR /opt/app
+ ---> Using cache
+ ---> 481cb2b644b0
+Step 5/8 : VOLUME /opt/app
+ ---> Using cache
+ ---> bcd481e50aeb
+Step 6/8 : RUN pip install --upgrade pip && pip install -r requirements.txt
+ ---> Using cache
+ ---> 5eb50707adb4
+Step 7/8 : RUN pip install --upgrade pip && pip install paramiko
+ ---> Using cache
+ ---> d284b7b7bd35
+Step 8/8 : ENTRYPOINT ["python", "sql_orm.py"]
+ ---> Using cache
+ ---> 700362226288
+
+Successfully built 700362226288
+Successfully tagged hw12_python:latest
+Building nginx
+Step 1/8 : FROM debian:buster-slim
+ ---> 5b395270ee77
+Step 2/8 : COPY . /opt
+ ---> Using cache
+ ---> 51e86ea0d164
+Step 3/8 : WORKDIR /opt/app
+ ---> Using cache
+ ---> 49ca4dc9deff
+Step 4/8 : VOLUME /opt/app
+ ---> Using cache
+ ---> b6749ca35fb0
+Step 5/8 : RUN apt-get update && apt-get install -y   nginx   && rm -rf /var/lib/apt/lists/*
+ ---> Using cache
+ ---> a54c17f62fd4
+Step 6/8 : COPY custom.conf /etc/nginx/conf.d/
+ ---> Using cache
+ ---> a0cbea29191d
+Step 7/8 : EXPOSE 80
+ ---> Using cache
+ ---> 4b2bf3247961
+Step 8/8 : CMD ["nginx","-g","daemon off;"]
+ ---> Using cache
+ ---> f26bc9417b60
+
+Successfully built f26bc9417b60
+Successfully tagged hw12_nginx:latest
+sftp is up-to-date
+python is up-to-date
+nginx is up-to-date
+ Name              Command             State              Ports            
+---------------------------------------------------------------------------
+nginx    nginx -g daemon off;          Up      80/tcp, 0.0.0.0:80->883/tcp 
+python   python sql_orm.py             Up                                  
+sftp     /bin/bash /opt/app/start.sh   Up      0.0.0.0:223->22/tcp, 223/tcp
+Stopping nginx  ... 
+Stopping python ... 
+Stopping sftp   ... 
+[3A[2KStopping nginx  ... [32mdone[0m[3B[2A[2KStopping python ... [32mdone[0m[2B[1A[2KStopping sftp   ... [32mdone[0m[1BRemoving nginx  ... 
+Removing python ... 
+Removing sftp   ... 
+[2A[2KRemoving python ... [32mdone[0m[2B[3A[2KRemoving nginx  ... [32mdone[0m[3B[1A[2KRemoving sftp   ... [32mdone[0m[1BRemoving network hw12_default
+Removing network hw12_devops_network

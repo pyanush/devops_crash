@@ -11,10 +11,10 @@ services:
      networks:
        - devops_network
      healthcheck:
-       test: ["CMD", "test", "-e", "/opt/app/logfile.log"]
+       test: ["CMD", "pwd"]
        interval: 3s
        timeout: 5s
-       retries: 10
+       retries: 5
        start_period: 1s
 
    python:
@@ -29,7 +29,7 @@ services:
      environment:
        - ENV=development
      healthcheck:
-       test: ["CMD-SHELL", "test -f /opt/app/access_logs.xlsx"]
+       test: ["CMD-SHELL", "test -f /opt/app/logfile.log"]
        interval: 3s
        timeout: 5s
        retries: 10
@@ -41,14 +41,14 @@ services:
      ports:
        - "80:883"
      volumes:
-       - ./nginx:/opt/app
+       - ./ftp:/opt/app
      depends_on:
        python:
          condition: service_healthy
      environment:
        - ENV=development
      healthcheck:
-       test: ["CMD-SHELL", "test -f /opt/app/access_logs.xlsx"]
+       test: ["CMD-SHELL", "ls", "-lsa"]
        interval: 3s
        timeout: 5s
        retries: 5
@@ -57,4 +57,3 @@ services:
 networks:
   devops_network:
     driver: bridge
-
