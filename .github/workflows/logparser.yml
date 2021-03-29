@@ -32,6 +32,12 @@ jobs:
           echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      # Fix permission denied for logfile & result
+      - name: Fix permission
+        run: |
+          cd lesson12/my_project
+          chmod -R 777 ./logs
+          chmod -R 777 ./result
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       # Runs a single command using the runners shell
