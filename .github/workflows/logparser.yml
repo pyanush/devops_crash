@@ -50,7 +50,7 @@ jobs:
         pip install sqlalchemy
         pip install openpyxl
         python sql_orm.py
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+#        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     
     - name: docker build
       run: |
@@ -60,13 +60,12 @@ jobs:
         ls -la
 
     - name: Create ZIP deployment package
-      run : zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
+      run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
       
 
 #     - name: put sftp
 #       uses: appleboy/scp-action@master
 #       with: host: username: key: port: source: target: strip_components: 1
-
 
     - name: CleanUp
       run: |
