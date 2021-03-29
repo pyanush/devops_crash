@@ -1,5 +1,4 @@
 # This is a basic workflow to help you get started with Actions
-
 name: valentyn_zakharov_14071979
 
 # Controls when the action will run.
@@ -30,24 +29,14 @@ jobs:
           echo "$SSH_PRIVATE_KEY" >> ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-          cat ~/.ssh/id_rsa
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-      # Fix permission denied for logfile & result
-      #- name: Fix permission
-      #  run: |
-      #    cd lesson12/my_project
-      #    chmod -R 777 ./logs
-      #    chmod -R 777 ./result
+      
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      # Runs a single command using the runners shell
-      #- name: Run a one-line script
-      #  run: echo Hello, world!
-
+      
       # Runs a set of commands using the runners shell
-
-      - name: Run a multi-line script
+      - name: Docker-compose
         run: |
           cd lesson12/my_project
           docker-compose up -d --force-recreate
