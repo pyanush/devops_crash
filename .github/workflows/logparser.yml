@@ -3,7 +3,8 @@ name: Pavlo_polyak_25021982
 env:
   PACK_NAME: "docker-compose ${{ github.sha }}"
   APP_NAME: "docker-compose"
-  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }} 
+  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+  DEPLOY_PACKAGE_NAME: "log_xlsx_${{ github.sha }}.zip"
  
 on:
   push:
