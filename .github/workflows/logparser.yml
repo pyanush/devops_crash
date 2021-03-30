@@ -28,7 +28,7 @@ jobs:
           whoami
           cd /home/testuser
           pwd
-          mkdir /home/testuser/valentyn_zakharov_workflow/
+          mkdir -p /home/testuser/valentyn_zakharov_workflow
           cd /home/testuser/valentyn_zakharov_workflow
           git clone https://github.com/pyanush/devops_crash.git
           git status
