@@ -66,6 +66,6 @@ jobs:
 #       uses: appleboy/scp-action@master
 #       with: host: username: key: port: source: target: strip_components: 1
 
-    - name: CleanUp
-      run: |
-        rm -r ~/.ssh
+#     - name: CleanUp
+#       run: |
+#         rm -r ~/.ssh
