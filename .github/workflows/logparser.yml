@@ -57,6 +57,7 @@ jobs:
         pwd
         cd hw12
         docker-compose up -d --force-recreate
+        cd python/
         ls -la
 
     - name: Create ZIP artifacts
