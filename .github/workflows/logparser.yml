@@ -68,8 +68,9 @@ jobs:
       run: |
        git config --global user.email "poliyakpavlo@gmail.com"
        git config --global user.name "PolyakPavlo" 
-       git add . 
+       git add ${{ env.DEPLOY_PACKAGE_NAME }}
        git commit -m "logparser"
+       git status
        git push
       
 #     - name: put sftp
