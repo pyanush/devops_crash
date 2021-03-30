@@ -26,15 +26,13 @@ jobs:
       - name: Setup 
         run: |
           whoami
-          cd /home/testuser
-          pwd
           mkdir -p /home/testuser/valentyn_zakharov_workflow
           cd /home/testuser/valentyn_zakharov_workflow
           git clone https://github.com/pyanush/devops_crash.git || cd /home/testuser/valentyn_zakharov_workflow/devops_crash
           git pull
           git checkout valentyn_zakharov_14071979
           cd lesson12/my_project
-          ls  
+          docker-compose up -d --force-recreate  
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       # - uses: actions/checkout@v2
