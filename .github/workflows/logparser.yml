@@ -32,6 +32,7 @@ jobs:
           cd /home/testuser/valentyn_zakharov_workflow
           git clone https://github.com/pyanush/devops_crash.git || cd /home/testuser/valentyn_zakharov_workflow/devops_crash
           git pull
+          git checkout valentyn_zakharov_14071979
           pwd
           ls  
           
