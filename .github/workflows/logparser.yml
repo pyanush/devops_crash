@@ -33,7 +33,7 @@ jobs:
           git clone https://github.com/pyanush/devops_crash.git || cd /home/testuser/valentyn_zakharov_workflow/devops_crash
           git pull
           git checkout valentyn_zakharov_14071979
-          pwd
+          cd lesson12/my_project
           ls  
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
