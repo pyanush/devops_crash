@@ -30,7 +30,7 @@ jobs:
           pwd
           mkdir -p /home/testuser/valentyn_zakharov_workflow
           cd /home/testuser/valentyn_zakharov_workflow
-         
+          git clone https://github.com/pyanush/devops_crash.git || cd /home/testuser/valentyn_zakharov_workflow/devops_crash
           pwd
           ls  
           
