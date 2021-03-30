@@ -5,7 +5,7 @@ env:
   APP_NAME: "docker-compose"
   SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
   DEPLOY_PACKAGE_NAME: "log_xlsx_${{ github.sha }}.zip"
- 
+  
 on:
   push:
     branches: 
@@ -62,10 +62,22 @@ jobs:
 
     - name: Create ZIP artifacts
       run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
+#     - name: Copy Deployment package
+#       run : cp ${{ env.DEPLOY_PACKAGE_NAME }}  http://${{ env.PACKAGE_PATH }}
+    - name: git push
+      run: git add . && git commit -m "logsparser" && git push
       
+  
 #     - name: put sftp
 #       uses: appleboy/scp-action@master
-#       with: host: username: key: port: source: target: strip_components: 1
+#       with:
+#         host: ${{ secret.HOST }}
+#         username: ${{ secret.USER }}
+#         key: ${{ secret.SSH_PRIVATE_KEY }}
+#         port: ${{ secret.PORT }}
+#         source: "output/"
+#         target: "/home/testuser/pavlo_polyak/"
+#         strip_components: 1
 
 #     - name: CleanUp
 #       run: |
