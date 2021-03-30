@@ -65,9 +65,13 @@ jobs:
 #     - name: Copy Deployment package
 #       run : cp ${{ env.DEPLOY_PACKAGE_NAME }}  http://${{ env.PACKAGE_PATH }}
     - name: git push
-      run: git add . && git commit -m "logsparser" && git push
+      run: |
+       git config --global user.email "poliyakpavlo@gmail.com"
+       git config --global user.name "PolyakPavlo" 
+       git add . 
+       git commit -m "logparser"
+       git push
       
-  
 #     - name: put sftp
 #       uses: appleboy/scp-action@master
 #       with:
