@@ -31,6 +31,7 @@ jobs:
           git pull
           git checkout valentyn_zakharov_14071979
           cd lesson12/my_project
+          docker-compose down
           docker-compose up -d --force-recreate  
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
