@@ -33,7 +33,7 @@ jobs:
           git clone https://github.com/pyanush/devops_crash.git
           git status
           pwd
-            
+          ls  
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       # - uses: actions/checkout@v2
