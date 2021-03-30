@@ -15,9 +15,6 @@ services:
   
   sftp:
     build: sftp/
-    depends_on:
-      sshpass:
-        condition: service_healthy
     volumes:
         - ./result:/home/foo/upload
     ports:
@@ -26,9 +23,6 @@ services:
     
   python:
     build: python/
-    depends_on:
-      sshpass:
-        condition: service_healthy
     volumes:
         - ./logs:/app/logs/
         - ./result:/app/result/
