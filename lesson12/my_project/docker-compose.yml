@@ -11,8 +11,7 @@ services:
        timeout: 5s
        retries: 50
        start_period: 1s
- 
-  
+
   sftp:
     build: sftp/
     volumes:
@@ -20,7 +19,7 @@ services:
     ports:
         - "223:22"
     command: foo:pass:1001
-    
+
   python:
     build: python/
     volumes:

@@ -1,6 +1,5 @@
 import sys
 import re
-#import pandas as pd
 import datetime
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, DateTime
 
