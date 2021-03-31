@@ -10,12 +10,6 @@ services:
        - ./ftp:/opt/app
      networks:
        - devops_network
-     healthcheck:
-       test: ["CMD", "python", "ps.py"]
-       interval: 3s
-       timeout: 5s
-       retries: 5
-       start_period: 1s
 
    python:
      build: ./python 
@@ -23,15 +17,13 @@ services:
      volumes: 
        - ./python:/opt/data
        - ./python:/opt/app
-     depends_on:
-       sftp:
-         condition: service_healthy
-     healthcheck:
-       test: ["CMD", "test -f /opt/app/logfile.log"]
-       interval: 3s
-       timeout: 5s
-       retries: 10
-       start_period: 1s
+
+#      healthcheck:
+#        test: ["CMD", "test -f /opt/app/logfile.log"]
+#        interval: 3s
+#        timeout: 5s
+#        retries: 10
+#        start_period: 1s
 
    nginx:
      build: ./nginx
