@@ -11,7 +11,7 @@ services:
      networks:
        - devops_network
      healthcheck:
-       test: ["CMD", "pwd"]
+       test: ["CMD", "python", "ps.py"]
        interval: 3s
        timeout: 5s
        retries: 5
@@ -26,10 +26,8 @@ services:
      depends_on:
        sftp:
          condition: service_healthy
-     environment:
-       - ENV=development
      healthcheck:
-       test: ["CMD-SHELL", "test -f /opt/app/logfile.log"]
+       test: ["CMD", "test -f /opt/app/logfile.log"]
        interval: 3s
        timeout: 5s
        retries: 10
@@ -45,10 +43,8 @@ services:
      depends_on:
        python:
          condition: service_healthy
-     environment:
-       - ENV=development
      healthcheck:
-       test: ["CMD-SHELL", "ls", "-lsa"]
+       test: ["CMD", "ls", "-lsa"]
        interval: 3s
        timeout: 5s
        retries: 5
