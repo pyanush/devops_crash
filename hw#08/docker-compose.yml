@@ -1,0 +1,33 @@
+version '2.9'
+  service:
+    db:
+      image: postgres:13.2-alpine
+      container_name: postgres
+      ports:
+        - 5432:5432
+      volumes:
+        - ./pg_data:/var/lib/postgresql/data/pgdata
+      environment:
+        POSTGRES_PASSWORD: 123qweASD
+        POSTGRES_DB: datalog
+        PGDATA: /var/lib/postgresql/data/pgdata
+      restart: always
+    app:
+      image: ndrx/web-server
+      container_name: application
+      ports:
+        - 3000:3000
+      environment:
+        POSTGRES_HOST: db
+      restart: always
+      link:
+        - db
+    nginx:
+      images: nginx:1.19.9-alpine
+      container_name: nginx
+      volumes:
+        - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      link:
+        - app
+        ports:
+          - "5000:5000"
