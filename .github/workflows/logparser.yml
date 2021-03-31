@@ -1,9 +1,8 @@
-# This is a basic workflow to help you get started with Actions
 name: valentyn_zakharov_14071979
 
 # Controls when the action will run.
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
+  # Triggers the workflow on push or pull request events
   push:
     branches:
       - valentyn_zakharov_14071979
@@ -23,26 +22,18 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Setup 
+      - name: Setup git repo & docker-compose up 
         run: |
           mkdir -p /home/testuser/valentyn_zakharov_workflow
           cd /home/testuser/valentyn_zakharov_workflow
           git clone https://github.com/pyanush/devops_crash.git || cd /home/testuser/valentyn_zakharov_workflow/devops_crash
+          cd /home/testuser/valentyn_zakharov_workflow/devops_crash
           git pull
           git checkout valentyn_zakharov_14071979
           cd lesson12/my_project
           docker-compose up -d --force-recreate
-          docker-compose ps
-          
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      # - uses: actions/checkout@v2
+                    
       
-      # Runs a set of commands using the runners shell
-      #- name: Docker-compose
-      #  run: |
-      #    cd lesson12/my_project
-      #    docker-compose up -d --force-recreate
-
 
 
 
