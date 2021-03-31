@@ -46,10 +46,9 @@ jobs:
       run: |
         pwd
         cd hw12
-        docker-compose up -d --force-recreate
-        cd python/
-        ls -la
-
+        docker-compose up --build -d
+        docker container ls -a
+#        docker-compose up -d --force-recreate
     - name: Create ZIP artifacts
       run: zip -r ${{ env.DEPLOY_PACKAGE_NAME }} ./ -x *.git*
 #     - name: Copy Deployment package
