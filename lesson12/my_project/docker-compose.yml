@@ -10,14 +10,11 @@ services:
        interval: 3s
        timeout: 5s
        retries: 50
-       start_period: 15s
+       start_period: 1s
  
   
   sftp:
     build: sftp/
-    depends_on:
-      sshpass:
-        condition: service_healthy
     volumes:
         - ./result:/home/foo/upload
     ports:
@@ -26,9 +23,6 @@ services:
     
   python:
     build: python/
-    depends_on:
-      sshpass:
-        condition: service_healthy
     volumes:
         - ./logs:/app/logs/
         - ./result:/app/result/
