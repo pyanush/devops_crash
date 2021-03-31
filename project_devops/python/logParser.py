@@ -21,4 +21,6 @@ inputFile.close ()
 df = pd.DataFrame (log_entries)
 df["hostname"].mask(df["hostname"].duplicated(), inplace=True)
 df["ip_address"].mask(df["ip_address"].duplicated(), inplace=True)
-df.to_excel("/app/formatt.xlsx")
+df.to_excel("/upload/formatt.xlsx")
+while True:
+    pass

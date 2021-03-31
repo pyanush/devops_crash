@@ -7,7 +7,7 @@ services:
         - "223:22"
     command: foo:pass:1001
     volumes:
-        - /home/mykola/project_devops/python/app/:/home/foo/upload
+        - /home/mykola/project_devops/python/upload/:/home/foo/upload
     depends_on:
       nginx:
        condition: service_healthy
@@ -17,12 +17,12 @@ services:
        timeout: 5s
        retries: 10
        start_period: 1s
-  python:
+   python:
     build: python/
     volumes:
-        - /home/mykola/project_devops/python/app/:/usr/src/app
+        - /home/mykola/project_devops/python/upload/:/app/
        
-  nginx:
+   nginx:
     build: nginx/
     ports:
         - "883:80"
@@ -32,9 +32,8 @@ services:
       python:
         condition: service_healthy
     healthcheck:
-       test:  ["CMD-SHELL", "test -f /home/mykola/project_devops/python/app/formatt.xlsx"]
+       test:  ["CMD-SHELL", "test -f /home/mykola/project_devops/python/upload/formatt.xlsx"]
        interval: 3s
        timeout: 5s
        retries: 50
        start_period: 1s    
-    

@@ -1,0 +1,1 @@
+ docker run -v /home/testuser/mykola/docker_projekt/python/upload/:/upload python91   -mount volume
