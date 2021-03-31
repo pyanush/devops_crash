@@ -1,4 +1,4 @@
-5version: '2.1'
+version: '2.1'
 
 services:
   sshpass:
