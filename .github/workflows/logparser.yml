@@ -42,21 +42,12 @@ jobs:
     - uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
-    
-    - run: |
-        python -m pip install --upgrade pip
-        pip install paramiko
-        pip install pandas
-        pip install sqlalchemy
-        pip install openpyxl
-        python sql_orm.py
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    
     - name: docker build
       run: |
         pwd
         cd hw12
         docker-compose up -d --force-recreate
+        python sql_orm.py
         cd python/
         ls -la
 

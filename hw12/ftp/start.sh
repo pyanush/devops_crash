@@ -1,5 +1,5 @@
 #!/bin/bash
-USER=${USER:-sftp}
+USER=${USER:testuser}
 USER_ID=${USER_ID:-1000}
 GROUP_ID=${GROUP_ID:-1000}
 PASS=${PASS:-c83eDteUDT}

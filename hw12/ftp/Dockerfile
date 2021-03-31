@@ -13,7 +13,6 @@ RUN apt-get update -y && \
 apt-get install vsftpd -y && \
 apt-get install ftp -y && \
 apt-get install sshpass -y && \
-apt-get install systemd -y && \
 apt-get install firewalld -y
 
 RUN apt-get update && apt-get install -y \
@@ -27,4 +26,3 @@ RUN apt-get update && apt-get install -y \
 	&& mkdir /ssh/
 
 ENTRYPOINT ["/bin/bash", "/opt/app/start.sh"]
-
