@@ -6,7 +6,7 @@ services:
     volumes:
         - ./logs:/logs
     ports:
-        - "224:22"
+        - "223:22"
     healthcheck:
         test:  ["CMD-SHELL", "test -f /logs/logfile.log"]
         interval: 3s
@@ -32,7 +32,7 @@ services:
   nginx:
     build: nginx/
     ports:
-       - "82:80"
+       - "883:80"
     depends_on:
        python:
         condition: service_healthy
