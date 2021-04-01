@@ -1,0 +1,43 @@
+version: '2.3'
+
+services:
+  sftp:
+    build: sftp/
+    volumes:
+        - ./result:/home/devops/upload
+        - ./logs:/home/devops/logs
+    ports:
+        - "223:22"
+    command: devops:pass:::upload
+    healthcheck:
+       test:  ["CMD-SHELL", "test -f /home/devops/logs/.logfile.log"]
+       interval: 5s
+       timeout: 10s
+       retries: 50 
+       start_period: 10s
+
+  python:
+    build: python/
+    volumes:
+        - ./logs:/opt/apt/logs
+        - ./result:/opt/apt/result
+    depends_on:
+      sftp:
+        condition: service_healthy
+    healthcheck:
+       test:  ["CMD-SHELL", "test -f /opt/apt/result/access_logs.xlsx"]
+       interval: 5s
+       timeout: 10s
+       retries: 100
+       start_period: 120s
+
+  nginx:
+    depends_on:
+      python:
+        condition: service_started
+
+    build: nginx/
+    ports:
+        - "883:80"
+    volumes:
+        - ./nginx/app:/opt/app
