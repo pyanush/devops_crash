@@ -6,7 +6,7 @@
 для підключення волюма:   docker run --name redis -v /home/mykola/redis/:/data/ -d redis
 для видалення сонтейнерів:  sudo rm -rf /var/lib/containerd
 			    sudo rm -rf /var/lib/docker
- 
+повна очистка: docker rm -f $(docker ps -aq) 
 
 Для запуска контейнера :
 docker -it -p 1234:8080 tomcat
