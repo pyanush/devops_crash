@@ -1,0 +1,40 @@
+version: '2.1'
+
+services:
+  sftp:
+    build: sftp/
+    volumes:
+        - ./logs:/logs
+    ports:
+        - "224:22"
+    healthcheck:
+        test:  ["CMD-SHELL", "test -f /logs/logfile.log"]
+        interval: 3s
+        timeout: 5s
+        retries: 50
+        start_period: 1s
+  python:
+    build: python/
+    volumes:
+        - ./logs:/app/logs/
+        - ./result:/app/result/
+    healthcheck:
+       test:  ["CMD-SHELL", "test -f /app/result/access.db"]
+       interval: 3s
+       timeout: 5s
+       retries: 50
+       start_period: 1s
+  putsftp: 
+    build: putsftp/
+    volumes:
+       - ./logs:/app/logs/
+       - ./result:/app/result/
+  nginx:
+    build: nginx/
+    ports:
+       - "82:80"
+    depends_on:
+       python:
+        condition: service_healthy
+    volumes: 
+       - ./html:/opt/app/
