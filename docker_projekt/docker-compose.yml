@@ -3,7 +3,7 @@ services:
    python:
     build: python/
     volumes:
-        - /home/testuser/mykola/docker_projekt/python/upload/:/upload             
+        - /home/testuser/mykola/docker_projekt/python/upload/:/upload  
          
    nginx:
     build: nginx/
@@ -29,6 +29,7 @@ services:
     command: foo:pass:1001
     volumes:
         - /home/testuser/mykola/docker_projekt/python/upload/:/home/foo/upload
+        - /home/testuser/mykola/docker_projekt/python/app/:/home/foo/log 
    # depends_on:
     #  nginx:
      #  condition: service_healthy 
