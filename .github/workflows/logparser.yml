@@ -5,7 +5,7 @@ on:
     - mykola_shtefanovych_19021973/docker_projekt
 jobs:
  compose-projekt:
-   runs-on: ubuntu-latest
+   runs-on: self-hosted
    steps:      
     - name: docker-compose1
       run: 
