@@ -22,9 +22,9 @@ jobs:
       
       - name: Run my compose 
         run: 
-         git clone https://github.com/pyanush/devops_crash.git 
+         git clone -v https://github.com/pyanush/devops_crash.git 
          cd /home/testuser/mykola/my_CI/devops_crash
          git pull
          git checkout mykola_shtefanovych_19021973
          cd docker_projekt
-         docker-compose up -d --force-recreate
+         docker-compose up --force-recreate -d

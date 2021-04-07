@@ -9,4 +9,8 @@ jobs:
    steps:      
     - name: docker-compose1
       run: 
-        docker-compose up --build -d
+        cd /home/testuser/mykola/my_CI/devops_crash
+         git pull
+         git checkout mykola_shtefanovych_19021973
+         cd docker_projekt
+         docker-compose up  -d --force-recreate
