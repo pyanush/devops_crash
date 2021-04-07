@@ -21,8 +21,7 @@ jobs:
     steps:
       
       - name: docker-compose up
-        run: 
-         cd /home/testuser/mykola/my_CI
+        run: cd /home/testuser/mykola/my_CI
          git clone https://github.com/pyanush/devops_crash.git || cd /home/testuser/mykola/my_CI/devops_crash
          cd /home/testuser/mykola/my_CI/devops_crash
          git pull
