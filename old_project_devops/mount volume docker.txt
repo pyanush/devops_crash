@@ -1,4 +1,0 @@
- docker run -v /home/testuser/mykola/docker_projekt/python/upload/:/upload python91   -mount volume
-
-
-run compose :     docker-compose up --build -d
