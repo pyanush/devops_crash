@@ -12,4 +12,5 @@ jobs:
    steps:      
     - name: docker-compose
       run: 
+       clone mykola_shtefanovych_19021973/docker_projekt
         docker-compose up --build -d
