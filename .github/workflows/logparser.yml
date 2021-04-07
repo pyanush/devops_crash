@@ -3,9 +3,6 @@ on:
   push:
     branches:
     - mykola_shtefanovych_19021973/docker_projekt
-  pull_request:
-    branches: 
-    - mykola_shtefanovych_19021973/docker_projekt
 jobs:
  compose-projekt:
    runs-on: ubuntu-latest
