@@ -19,9 +19,14 @@ jobs:
     runs-on: self-hosted
     
     steps:
+      - name: Git clonemy repo
+        uses: actions/checkout@v1
+      - name: List curent folder
+        run: ls -la
       
       - name: docker-compose up
-        run: cd /home/testuser/mykola/my_CI
+        run: |
+         cd /home/testuser/mykola/my_CI
          git clone https://github.com/pyanush/devops_crash.git /home/testuser/mykola/my_CI/devops_crash
          cd /home/testuser/mykola/my_CI/devops_crash
          git pull
