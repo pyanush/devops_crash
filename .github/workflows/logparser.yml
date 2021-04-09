@@ -2,13 +2,22 @@ name: mykola_shtefanovych_19021973
 on:
   push:
     branches:
-    - mykola_shtefanovych_19021973/docker_projekt
+    - mykola_shtefanovych_19021973
+  pull_request:
+   branches:
+   - mykola_shtefanovych_19021973
 jobs:
  compose-projekt:
    runs-on: self-hosted
-   steps:      
+   steps:
+   
+    - name: Git clonemy repo
+      uses: actions/checkout@v1
+        
+    - name: List curent folder
+      run: ls -la
     - name: docker-compose1
-      run: 
+      run: |
         cd /home/testuser/mykola/my_CI/devops_crash
          git pull
          git checkout mykola_shtefanovych_19021973
