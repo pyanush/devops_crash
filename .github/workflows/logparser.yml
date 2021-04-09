@@ -19,7 +19,7 @@ jobs:
     - name: docker-compose1
       run: |
        cd /home/testuser/mykola/my_CI
-         git pull https://github.com/pyanush/devops_crash.git /home/testuser/mykola/my_CI/devops_crash
+         git pull https://github.com/pyanush/devops_crash.git
          cd /home/testuser/mykola/my_CI/devops_crash
          git checkout mykola_shtefanovych_19021973
          cd docker_projekt
