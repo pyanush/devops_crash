@@ -21,6 +21,7 @@ jobs:
     steps:
       - name: Git clonemy repo
         uses: actions/checkout@v1
+        
       - name: List curent folder
         run: ls -la
       
@@ -32,4 +33,4 @@ jobs:
          git pull
          git checkout mykola_shtefanovych_19021973
          cd docker_projekt
-         docker-compose up --build -d
+         docker-compose up --force-recreate -d
