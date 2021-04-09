@@ -1,7 +1,7 @@
 name: mykola_shtefanovych_19021973
 on:
   push:
-    branches:
+   branches:
     - mykola_shtefanovych_19021973
   pull_request:
    branches:
@@ -18,8 +18,9 @@ jobs:
       run: ls -la
     - name: docker-compose1
       run: |
-        cd /home/testuser/mykola/my_CI/devops_crash
-         git pull
+       cd /home/testuser/mykola/my_CI
+         git pull https://github.com/pyanush/devops_crash.git /home/testuser/mykola/my_CI/devops_crash
+         cd /home/testuser/mykola/my_CI/devops_crash
          git checkout mykola_shtefanovych_19021973
          cd docker_projekt
-         docker-compose up  -d --force-recreate
+         docker-compose up --force-recreate -d
