@@ -18,8 +18,6 @@ jobs:
      run: ls -la
    - name: docker-compose
      run: |
-         cd /home/testuser/mykola/my_CICD
-         git clone https://github.com/pyanush/devops_crash.git /home/testuser/mykola/my_CICD/devops_crash
          cd /home/testuser/mykola/my_CICD/devops_crash
          git pull
          git checkout mykola_shtefanovych_19021973
