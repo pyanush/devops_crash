@@ -19,5 +19,7 @@ jobs:
     - name: docker-compose1
       run: |
          cd /home/testuser/mykola/my_CI/devops_crash
+         git pull
          git checkout mykola_shtefanovych_19021973
+         cd docker_projekt
          docker-compose up --force-recreate -d
