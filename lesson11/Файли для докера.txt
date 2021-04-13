@@ -1,3 +1,14 @@
+
+/home/testuser/mykola/my_CI/devops_crash/docker_projekt/
+
+ - name: Git clonemy repo
+        uses: actions/checkout@v1
+        
+      - name: List curent folder
+        run: ls -la
+
+
+
 Для виконання команд докера без судо:
 > sudo groupadd docker
 > sudo usermod -aG docker mykola
