@@ -4,13 +4,13 @@ WORKDIR /app/
 
 COPY import.txt  /app/
 
-RUN pip install --upgrade pip \
-    && pip install --no-cache-dir -r import.txt
+RUN pip3 install --upgrade pip \
+    && pip3 install --no-cache-dir -r import.txt
 
 COPY logparser.py /app/
 
 COPY ./app/logfile.log /app/
 
 VOLUME /upload/
-ENTRYPOINT [ "python", "logparser.py" ]
+ENTRYPOINT [ "python3", "logparser.py" ]
 #CMD ["python", "logparser.py" ]
