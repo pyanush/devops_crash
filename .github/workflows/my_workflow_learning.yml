@@ -1,0 +1,53 @@
+name: my_github_action_for_learning
+
+env:
+  APPLICATION_NAME: "MyFlask"
+  DEPLOY_PACKAGE_NAME: "flask-depoly-ver-${{ githab.sha }}"
+  
+on:
+  push:
+    branches: 
+        - mykola_shtefanovych_19021973
+        
+  pull_request:
+    branches: 
+        - mykola_shtefanovych_19021973
+        
+  workflow_dispatch:
+  
+jobs:
+
+  my_testing:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Run in my testing
+        run: echo "Hello, world!"
+        
+      - name: Execute few command
+        run: |
+          echo "Hello my lend!"
+          echo "Hello my rivs!"
+          echo "Application name: ${{ env.APPLICATION_NAME }}"
+      
+      - name: Run in my testing mylti line script
+        run: |
+          echo "Привіт це я пробую Github Actions в роботі!",
+          ls -al
+          
+  my_deploy:
+    runs-on: ubuntu-latest
+    
+    needs: my_testing
+    
+    steps:
+      - uses: actions/checkout@v1
+      
+      - name: Run a one-line script
+        run: echo "Hello World from Deploy job"
+        
+      - name: Printing deploy pacage
+        run: echo "Deploy package name is ${{ env.DEPLOY_PACKAGE_NAME }}"
+    
