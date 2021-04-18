@@ -2,7 +2,7 @@ name: my_github_action_for_learning
 
 env:
   APPLICATION_NAME: "MyFlask"
-  DEPLOY_PACKAGE_NAME: "flask-depoly-ver-${{ githab.sha }}"
+  DEPLOY_PACKAGE_NAME: "flask-depoly-ver-${{ github.sha }}"
   
 on:
   push:
