@@ -25,7 +25,7 @@ for entry in file.readlines():  # read file line by line
                      "date_time": datetime_obj, "message": line.group(5)})
 file.close()
 # converting to excel file using pandas
-if True:
+if cnt > 0:
     df = pd.DataFrame(logs)
 #    if not os.path.exists('/opt/app/result'):  # check output directory
 #        print('trouble with dir')
@@ -34,6 +34,7 @@ if True:
     df["hostname"].mask(df["hostname"].duplicated(), inplace=True)  # erasing duplicates from hostname
     df["ip_address"].mask(df["ip_address"].duplicated(), inplace=True)  # same ip address
     df.to_excel('/opt/apt/result/access_logs.xlsx')
+    open('/opt/apt/result/.access_logs.xlsx', 'a').close()
 else:
     print('Something goes wrong!')
     if cnt == 0:
