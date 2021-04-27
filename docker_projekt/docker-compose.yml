@@ -1,0 +1,44 @@
+version: '2.3'
+services: 
+   python:
+    build: python/
+    volumes:
+        - /home/testuser/mykola/docker_projekt/python/upload/:/upload  
+         
+   nginx:
+    build: nginx/
+    ports:
+        - "883:80" 
+    volumes: 
+        - /home/testuser/mykola/docker_projekt/nginx/app/:/opt/app  
+    #depends_on: 
+     # python:
+      #  condition: service_healthy      
+    #healthcheck:
+     #   test: ["CMD", "python3", "--version"]
+      #  interval: 3s
+       # timeout: 5s
+        #retries: 5
+       # start_period: 240s
+    
+          
+   sftp:
+    build: sftp/ 
+    ports:
+        - "223:22"
+    command: foo:pass:1001
+    volumes:
+        - /home/testuser/mykola/docker_projekt/python/upload/:/home/foo/upload
+        - /home/testuser/mykola/docker_projekt/python/app/:/home/foo/log 
+   # depends_on:
+    #  nginx:
+     #  condition: service_healthy 
+    #environment: 
+     #   - ENV=development 
+    #healthcheck:
+     #  test: ["CMD", "nginx", "--version"]
+      # interval: 2s
+      # timeout: 10s
+      # retries: 1
+       # start_period: 20s
+   
