@@ -1,0 +1,29 @@
+version: "2.3"
+services:
+   nginx:
+     build: /root/docker/nginx4
+     ports:
+       - "80:80"
+     volumes:
+       - /root/docker/redis:/data
+     depends_on:
+       redis:
+         condition: service_healthy
+     environment:
+       - ENV=development
+   redis:
+     image: redis
+     volumes:
+       - /root/docker/redis:/data
+     healthcheck:
+       test: ["CMD", "redis-cli", "-v"]
+       interval: 3s
+       timeout: 5s
+       retries: 5
+       start_period: 1s
+https://docs.docker.com/compose/install/
+
+
+
+
+sudo curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose

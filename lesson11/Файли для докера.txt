@@ -1,0 +1,122 @@
+
+/home/testuser/mykola/my_CI/devops_crash/docker_projekt/
+
+ - name: Git clonemy repo
+        uses: actions/checkout@v1
+        
+      - name: List curent folder
+        run: ls -la
+
+
+
+Для виконання команд докера без судо:
+> sudo groupadd docker
+> sudo usermod -aG docker mykola
+Перезагрузити сервер!!!
+для входу на контейнер: docker exec -it   або  -g id-cont /bin/bash - щоб мати консоль
+для підключення волюма:   docker run --name redis -v /home/mykola/redis/:/data/ -d redis
+для видалення сонтейнерів:  sudo rm -rf /var/lib/containerd
+			    sudo rm -rf /var/lib/docker
+повна очистка: docker rm -f $(docker ps -aq) 
+запуск композа: docker-compose up --build -d
+
+Для запуска контейнера :
+docker -it -p 1234:8080 tomcat
+docker -d -p 1234:80 nginx
+
+sftp
+sudo scp -r testuser@207.244.229.74:/opt/testuser/logfile.log /home/mykola/upload
+docker run -it -p 2222:22 -v /home/mykola/upload/:/home/foo/upload/ atmoz/sftp foo:pass:1001
+
+FROM alpine:3.11.5
+
+ENV NGINX_VERSION 1.16.1-r6
+
+RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.11/main nginx=${NFINX_VERSION} \
+   && mkdir -p /run/nginx
+
+EXPOSE 80
+
+COPY custom.conf /etc/nginx/conf.d/
+
+COPY . /opt/
+
+CMD ["nginx","-g","daemon off;"]
+
+
+₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
+
+FROM debian
+
+COPY . /opt/
+
+RUN apt-get update && apt-get install -y \
+  nginx \
+  && rm -rf /var/lib/apt/lists/*
+
+COPY custom.conf /etc/nginx/conf.d/
+
+EXPOSE 80
+
+CMD ["nginx","-g","daemon off;"]
+
+
+₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
+
+lesson11/custom.conf
+server {
+  listen  80;
+  server_name   docker.devops.crash;
+  
+  location / {
+      root   /opt/app;
+      index  index.html index.htm;
+  }
+  
+  location /test {
+      return 200 '$hostname\n';
+  }
+
+}
+
+
+₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
+
+
+
+app/
+<html>
+<head>
+<title>    </title>
+<style type="text/css">
+<!--
+h1  {text-alingn:center;
+  font-family:Arial, Helvetica, Sans-Serif;
+  }
+p  {text-indent:20px;
+  }
+-->
+</style>
+</head>
+<body bgcolor = "#ffffcc" text = "#000000">
+<h1>I am DevOps!!</h1>
+
+</body>
+</html>
+
+₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴₴
+
+
+FROM debian
+
+COPY . /opt/
+
+RUN apt-get update
+RUN apt-get install -y nginx
+
+COPY custom.conf /etc/nginx/conf.d/
+
+EXPOSE 80
+
+CMD ["nginx","-g","daemon off;"]
+

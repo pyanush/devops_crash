@@ -1,0 +1,6 @@
+Підготував для вас SFTP сервер
+
+Hostname: 207.244.229.74
+Port: 22
+Username: testuser
+Password: *,<R#!$(2udw{Zgz

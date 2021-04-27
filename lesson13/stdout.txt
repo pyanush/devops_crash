@@ -1,0 +1,2 @@
+get_list = subprocess.run(['a’, ‘b’, ‘c’, ‘d’, 'e'], stdout=subprocess.PIPE,
+                          universal_newlines=True).stdout

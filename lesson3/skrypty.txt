@@ -1,0 +1,76 @@
+
+usermod -aG wheel mykola
+lid -g wheel
+chmod 0440 /etc/sudoers.d/mykola
+chown -R mykola:mykola /home/mykola/.ssh
+sed -i 's/#PermitRootLogin yes/PermitRootLogin no/g'\ /etc/ssh/sshd_config
+sudo yum update -y
+sudo yum install vsftpd -y
+sudo systemctl start vsftpd
+sudo systemctl enable vsftpd
+sudo systemctl stop firevalld
+sudo cp /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.default
+*,<R#!$(2udw{Zgz
+
+2 git clone https://github.com/pyanush/devops_crash.git
+   3 cd .\devops_crash\
+   4 touch hello.html
+   5 rm .\hello.html
+   6 git branch oleksii_yakivchik_27031998
+   7 git branch
+   8 git checkout oleksii_yakivchik_27031998
+   9 touch hello.html
+  10 git add .\hello.html
+  11 git status
+  12 git commit
+  13 git commit -m "Added hello.html"
+  14 git push -u origin oleksii_yakivchik_27031998
+
+/home/testuser/mykola/my_CI/devops_crash
+
+key git devops
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8L15+9TJD1Dpakfx8hK9T3
+PA37jV/Otz/DB8MgDJifcPnz94fmoonFjyd3KAjOSrCVV/SDb9CZFQoPW9nTK
+8A/n0gZaJf2JcaW9VMg531X65JGmI1pZPt7aUd1HQ9KjLswmh3f/U7+aj/jW2Z
+EMp0NcfOmInLHtbZdAO7aG3j0rY732hICbEDZXfKNKdQPinRzJR7v2vIbYgqCC
+4AiKQKG8QTCxEwoD/UQbQzq4gLI+ui6QzsNYWnBgGntnaJFDnBvxeD4HD+mh8Nn
+ApE/AFgjFr6NeU4BttvCiRw8aKKOiTkh5Oy150gNhX52ClFLF7100Wld/Fo+aLr
+Su6MeeoX testuser@vmi526857.contaboserver.net
+
+
+
+
+# This is a basic workflow to help you get started with Actions
+
+name: mykola_shtefanovych_CI
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: 
+    - mykola_shtefanovych_19021973
+  pull_request:
+    branches: 
+    - mykola_shtefanovych_19021973
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: self-hosted
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Run my compose 
+        run: 
+         cp mykola_shtefanovych_19021973/docker_projekt
+         docker-cmpose up --build -d
+         
